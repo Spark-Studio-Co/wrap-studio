@@ -26,6 +26,9 @@ importers:
       svelte:
         specifier: ^5.19.7
         version: 5.19.7
+      svelte-countup:
+        specifier: ^0.2.8
+        version: 0.2.8(svelte@5.19.7)
     devDependencies:
       '@astrojs/tailwind':
         specifier: ^6.0.0
@@ -1743,6 +1746,14 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  svelte-countup@0.2.8:
+    resolution: {integrity: sha512-vxxZoA9uzoe5PpGKZQtqeXS2jzFmk0N+4yDeqppciKEL7ERVEra467OitJOB9ZRY8ftcDMP4J6LbHAeFgijrfA==}
+
+  svelte-inview@3.0.4:
+    resolution: {integrity: sha512-dJZMZ7qN+z2lsxHA7mK1vS35qOCfl1BNSs712a2AnulbRm371n2eoaNa5ICVYAViWpj2zCy1XGZllrxJ0Tjp5A==}
+    peerDependencies:
+      svelte: ^3.0.0
 
   svelte2tsx@0.7.34:
     resolution: {integrity: sha512-WTMhpNhFf8/h3SMtR5dkdSy2qfveomkhYei/QW9gSPccb0/b82tjHvLop6vT303ZkGswU/da1s6XvrLgthQPCw==}
@@ -4082,6 +4093,17 @@ snapshots:
       ts-interface-checker: 0.1.13
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  svelte-countup@0.2.8(svelte@5.19.7):
+    dependencies:
+      nanoid: 3.3.8
+      svelte-inview: 3.0.4(svelte@5.19.7)
+    transitivePeerDependencies:
+      - svelte
+
+  svelte-inview@3.0.4(svelte@5.19.7):
+    dependencies:
+      svelte: 5.19.7
 
   svelte2tsx@0.7.34(svelte@5.19.7)(typescript@5.7.3):
     dependencies:

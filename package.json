@@ -14,7 +14,8 @@
     "astro": "^5.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "svelte": "^5.19.7"
+    "svelte": "^5.19.7",
+    "svelte-countup": "^0.2.8"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",

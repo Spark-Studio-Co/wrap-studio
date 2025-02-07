@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import Button from "../../../shared/ui/button/button.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    image: ImageMetadata;
+    index: number;
+}
+
+const { title, description, image, index } = Astro.props;
+---
+
+<div
+    class="relative w-full min-h-[380px] p-[20px] flex items-start flex-col border border-secondary-dark rounded-[12px] overflow-hidden"
+>
+    <span
+        class="absolute inset-0 flex justify-center items-center text-[300px] font-walk-da-walk font-[400] text-secondary opacity-10 z-0"
+        style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
+    >
+        {index < 9 ? `0${index + 1}` : index + 1}
+    </span>
+
+    <span
+        class="text-white font-gotham font-[400] text-[28px] leading-6 relative z-10"
+    >
+        {`${title}`.toUpperCase()}
+    </span>
+
+    <p
+        class="text-secondary text-left font-mont-alter font-[400] text-[12px] leading-[22px] mt-3 max-w-[282px] relative z-10"
+    >
+        {description}
+    </p>
+
+    <div class="w-full h-[159px] rounded-[12px] mt-4 relative z-10">
+        <Image
+            src={image}
+            alt={`Service ${title}`}
+            class="w-full h-full object-cover absolute rounded-[12px]"
+        />
+    </div>
+
+    <Button
+        variant="outline"
+        text={`заказать`.toUpperCase()}
+        width="w-[150px]"
+        height="h-[40px]"
+        className="text-[14px] mt-5 relative z-10"
+    />
+</div>

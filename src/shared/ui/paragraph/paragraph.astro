@@ -1,0 +1,21 @@
+---
+interface Props {
+    text: string;
+    className?: string;
+    variant?: "hero" | "main";
+}
+
+const { text, className = "", variant = "main" } = Astro.props;
+---
+
+<p
+    class:list={[
+        "text-center font-mont-alter leading-6",
+        variant === "hero"
+            ? "font-[300] text-[15px] text-white"
+            : "font-[400] text-secondary text-[20px]",
+        className,
+    ]}
+>
+    {text}
+</p>

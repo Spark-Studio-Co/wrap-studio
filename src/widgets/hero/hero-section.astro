@@ -1,7 +1,22 @@
 ---
-
+import Heading from "../../shared/ui/heading/heading.astro";
+import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
+import Button from "../../shared/ui/button/button.astro";
 ---
 
-<main>
-    <span>GOIDA</span>
+<main
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto"
+>
+    <Heading level={1} text="WRAP" primaryText="Studio" />
+    <Paragraph
+        variant="hero"
+        text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
+        className="mt-4"
+    />
+    <Button
+        text={"Связаться с нами".toUpperCase()}
+        variant="link"
+        href="#contact"
+        className="mt-[64px]"
+    />
 </main>

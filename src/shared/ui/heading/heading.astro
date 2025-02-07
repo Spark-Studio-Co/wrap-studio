@@ -1,0 +1,31 @@
+---
+interface Props {
+    text: string;
+    primaryText?: string;
+    level?: 1 | 2 | 3 | 4 | 5 | 6;
+    className?: string;
+}
+
+const { text, primaryText = "", level = 1, className = "" } = Astro.props;
+
+const lines = text.split("\n");
+const Tag = `h${level}`;
+---
+
+<Tag
+    class:list={[
+        `font-gotham ${level < 2 ? "font-bold text-white text-[64px] text-center leading-[68px]" : "font-[400] text-[48px] text-secondary"}`,
+        className,
+    ]}
+>
+    {
+        lines.map((line, index) => (
+            <>
+                {line.toUpperCase()}
+                {index < lines.length - 1 && <br />}
+            </>
+        ))
+    }
+    {primaryText && " "}
+    <span class="text-primary">{primaryText.toUpperCase()}</span>
+</Tag>

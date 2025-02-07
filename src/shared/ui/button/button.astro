@@ -1,0 +1,53 @@
+---
+interface Props {
+    text: string;
+    href?: string;
+    className?: string;
+    variant?: "default" | "outline" | "link";
+    width?: string;
+    height?: string;
+    onClick?: () => void;
+}
+
+const {
+    text,
+    href,
+    className = "",
+    variant = "default",
+    width = "w-[210px]",
+    height = "h-[50px]",
+    onClick,
+} = Astro.props;
+---
+
+{
+    variant === "link" ? (
+        <a
+            href={href}
+            class:list={[
+                width,
+                height,
+                "font-mont-alter leading-[24px] flex items-center justify-center rounded-[32px] bg-primary font-medium text-white text-[16px]",
+                className,
+            ]}
+        >
+            {text}
+        </a>
+    ) : (
+        <button
+            class:list={[
+                width,
+                height,
+                "font-mont-alter leading-[24px] flex items-center justify-center rounded-[32px]",
+                variant === "default"
+                    ? "bg-primary font-medium text-white text-[16px]"
+                    : variant === "outline"
+                      ? "bg-transparent border border-primary font-medium text-primary text-[16px]"
+                      : "font-medium text-secondary text-[16px]",
+                className,
+            ]}
+        >
+            {text}
+        </button>
+    )
+}
