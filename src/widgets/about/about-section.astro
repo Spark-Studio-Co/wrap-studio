@@ -3,12 +3,11 @@ import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import CountUp from "../../features/about/ui/count-up/count-up.svelte";
 import CarSwiper from "../../features/about/ui/car-swiper/car-swiper";
-
 import { countUps } from "../../features/about/model/count-ups";
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px]"
+    class="relative max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px]"
 >
     <Heading level={3} text="// О нас" />
     <Paragraph
@@ -16,6 +15,10 @@ import { countUps } from "../../features/about/model/count-ups";
         variant="main"
         className="mt-8 mb-[64px]"
     />
-    {countUps.map((countUp) => <CountUp {...countUp} client:load />)}
-    <CarSwiper client:load />
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        {countUps.map((countUp) => <CountUp {...countUp} client:load />)}
+    </div>
+    <div class="relative w-full mb-96">
+        <CarSwiper client:load />
+    </div>
 </section>

@@ -1,0 +1,27 @@
+---
+import Heading from "../../shared/ui/heading/heading.astro";
+import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
+import PortfolioCard from "../../features/portfolio/ui/portfolio-card/portfolio-card.tsx";
+import Button from "../../shared/ui/button/button.astro";
+
+import { portfolioCards } from "../../features/portfolio/lib/mock-data";
+---
+
+<section
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px]"
+>
+    <Heading level={5} text="// Портфолио" />
+    <Paragraph
+        text="Оклейте авто бронепленкой 1 раз и забудьте о сколах, царапинах и полировках на 7-10 лет!"
+        variant="main"
+        className="mt-8 mb-8"
+    />
+    {
+        portfolioCards.map((card) => (
+            <div class="flex flex-col items-center mb-12 last:mb-0 w-full">
+                <PortfolioCard {...card} client:load />
+            </div>
+        ))
+    }
+    <Button text={`Смотреть все`.toUpperCase()} variant="outline" />
+</section>

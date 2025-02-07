@@ -1,0 +1,25 @@
+---
+import Heading from "../../shared/ui/heading/heading.astro";
+import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
+import PriceCard from "../../features/price/ui/price-card/price-card.astro";
+
+import { mockData } from "../../features/price/lib/mock-data";
+---
+
+<section
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-96"
+>
+    <Heading level={4} text="// Прайс-лист" />
+    <Paragraph
+        text="Защита и безупречный вид вашего автомобиля."
+        variant="main"
+        className="mt-8 mb-8"
+    />
+    {
+        mockData.map((card) => (
+            <div class="flex flex-col items-center mb-8 last:mb-0 w-full">
+                <PriceCard {...card} />
+            </div>
+        ))
+    }
+</section>

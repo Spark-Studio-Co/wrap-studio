@@ -3,17 +3,24 @@ interface Props {
     text: string;
     className?: string;
     variant?: "hero" | "main";
+    align?: "left" | "center";
 }
 
-const { text, className = "", variant = "main" } = Astro.props;
+const {
+    text,
+    className = "",
+    variant = "main",
+    align = "center",
+} = Astro.props;
 ---
 
 <p
     class:list={[
-        "text-center font-mont-alter leading-6",
+        "font-mont-alter leading-6",
         variant === "hero"
             ? "font-[300] text-[15px] text-white"
             : "font-[400] text-secondary text-[20px]",
+        align === "left" ? "text-left" : "text-center",
         className,
     ]}
 >
