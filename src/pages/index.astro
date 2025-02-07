@@ -1,18 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import CarSwiper from "../features/about/ui/car-swiper/car-swiper";
+
 //sections
 import HeroSection from "../widgets/hero/hero-section.astro";
 import ServicesSection from "../widgets/services/services-section.astro";
 import AboutSection from "../widgets/about/about-section.astro";
 import PriceSection from "../widgets/price/price-section.astro";
 import PortfolioSection from "../widgets/portfolio/portfolio-section.astro";
+import ContactsSection from "../widgets/contacts/contacts-section.astro";
 ---
 
 <Layout>
 	<HeroSection />
-	<ServicesSection />
-	<AboutSection />
-	<PriceSection />
-	<PortfolioSection />
+	<div class="bg-[#080808]">
+		<ServicesSection />
+		<AboutSection />
+		<CarSwiper client:load />
+		<PriceSection />
+		<PortfolioSection />
+		<ContactsSection />
+	</div>
 </Layout>

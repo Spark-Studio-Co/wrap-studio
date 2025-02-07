@@ -1,22 +1,79 @@
 ---
-import Heading from "../../shared/ui/heading/heading.astro";
+import { Image } from "astro:assets";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../shared/ui/button/button.astro";
+import { Header } from "../../features/navigation/ui/header/header";
+
+import Wrap from "/public/images/wrap.svg";
+import Studio from "/public/images/studio.svg";
+import BackgroundVideo from "/public/videos/video.mp4";
 ---
 
-<main
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto"
->
-    <Heading level={1} text="WRAP" primaryText="Studio" />
-    <Paragraph
-        variant="hero"
-        text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
-        className="mt-4"
-    />
-    <Button
-        text={"Связаться с нами".toUpperCase()}
-        variant="link"
-        href="#contact"
-        className="mt-[64px]"
-    />
+<style>
+    .video-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .video-section video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 102%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1; /* Чтобы видео было фоном */
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9); /* затемнение */
+        z-index: 0;
+    }
+
+    .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+</style>
+
+<main class="relative w-full">
+    <section class="video-section">
+        <video autoplay loop muted playsinline>
+            <source src={BackgroundVideo} type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+        </video>
+
+        <div class="overlay"></div>
+
+        <div
+            class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
+        >
+            <Header client:load />
+            <h1 class="flex items-center flex-col mt-[128px]">
+                <Image src={Wrap} alt="Wrap" class="w-[240px]" />
+                <Image src={Studio} alt="Studio" class="w-[240px] mt-4" />
+            </h1>
+            <Paragraph
+                variant="hero"
+                text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
+                className="mt-4"
+            />
+            <Button
+                text={"Связаться с нами".toUpperCase()}
+                variant="link"
+                href="#contacts"
+                className="mt-[64px]"
+            />
+        </div>
+    </section>
 </main>

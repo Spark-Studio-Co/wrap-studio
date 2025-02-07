@@ -12,12 +12,14 @@
     "@astrojs/react": "^4.2.0",
     "@astrojs/svelte": "^7.0.4",
     "astro": "^5.2.5",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.474.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "svelte": "^5.19.7",
     "svelte-countup": "^0.2.8",
-    "swiper": "^11.2.2"
+    "swiper": "^11.2.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.0",
