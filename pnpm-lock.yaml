@@ -17,6 +17,9 @@ importers:
       astro:
         specifier: ^5.2.5
         version: 5.2.5(jiti@1.21.7)(rollup@4.34.3)(typescript@5.7.3)(yaml@2.7.0)
+      lucide-react:
+        specifier: ^0.474.0
+        version: 0.474.0(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -29,10 +32,19 @@ importers:
       svelte-countup:
         specifier: ^0.2.8
         version: 0.2.8(svelte@5.19.7)
+      swiper:
+        specifier: ^11.2.2
+        version: 11.2.2
     devDependencies:
       '@astrojs/tailwind':
         specifier: ^6.0.0
         version: 6.0.0(astro@5.2.5(jiti@1.21.7)(rollup@4.34.3)(typescript@5.7.3)(yaml@2.7.0))(tailwindcss@3.4.1)
+      '@types/react':
+        specifier: ^19.0.8
+        version: 19.0.8
+      '@types/react-dom':
+        specifier: ^19.0.3
+        version: 19.0.3(@types/react@19.0.8)
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -1222,6 +1234,11 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+  lucide-react@0.474.0:
+    resolution: {integrity: sha512-CmghgHkh0OJNmxGKWc0qfPJCYHASPMVSyGY8fj3xgk4v84ItqDg64JNKFZn5hC6E0vHi6gxnbCgwhyVB09wQtA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -1764,6 +1781,10 @@ packages:
   svelte@5.19.7:
     resolution: {integrity: sha512-I0UUp2MpB5gF8aqHJVklOcRcoLgQNnBolSwLMMqDepE9gVwmGeYBmJp1/obzae72QpxdPIymA4AunIm2x70LBg==}
     engines: {node: '>=18'}
+
+  swiper@11.2.2:
+    resolution: {integrity: sha512-FmAN6zACpVUbd/1prO9xQ9gKo9cc6RE2UKU/z4oXtS8fNyX4sdOW/HHT/e444WucLJs0jeMId6WjdWM2Lrs8zA==}
+    engines: {node: '>= 4.7.0'}
 
   tailwindcss@3.4.1:
     resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
@@ -3313,6 +3334,10 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+  lucide-react@0.474.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -4128,6 +4153,8 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.17
       zimmerframe: 1.1.2
+
+  swiper@11.2.2: {}
 
   tailwindcss@3.4.1:
     dependencies:
