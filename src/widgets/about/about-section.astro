@@ -1,8 +1,8 @@
 ---
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import CountUp from "../../features/about/ui/count-up/count-up.svelte";
-import CarSwiper from "../../features/about/ui/car-swiper/car-swiper";
+import { CountUpComponent } from "../../features/about/ui/count-up/count-up.tsx";
+
 import { countUps } from "../../features/about/model/count-ups";
 ---
 
@@ -16,6 +16,10 @@ import { countUps } from "../../features/about/model/count-ups";
         className="mt-8 mb-[64px] sm:w-[80%]"
     />
     <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-        {countUps.map((countUp) => <CountUp {...countUp} client:load />)}
+        {
+            countUps.map((countUp) => (
+                <CountUpComponent {...countUp} client:only />
+            ))
+        }
     </div>
 </section>
