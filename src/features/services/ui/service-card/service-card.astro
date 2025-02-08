@@ -13,7 +13,7 @@ const { title, description, image, index } = Astro.props;
 ---
 
 <div
-    class="relative w-full min-h-[380px] p-[20px] flex items-start flex-col border border-secondary-dark rounded-[12px] overflow-hidden"
+    class="relative w-full min-h-[380px] p-[20px] sm:p-[24px] md:p-[28px] flex items-start flex-col border border-secondary-dark rounded-[12px] overflow-hidden"
 >
     <span
         class="absolute inset-0 flex justify-center items-center text-[300px] font-walk-da-walk font-[400] text-secondary opacity-10 z-0"
@@ -23,13 +23,13 @@ const { title, description, image, index } = Astro.props;
     </span>
 
     <span
-        class="text-white font-gotham font-[400] text-[28px] leading-6 relative z-10"
+        class="text-white font-gotham font-[400] text-[28px] sm:text-[32px] md:text-[36px] leading-6 relative z-10"
     >
         {`${title}`.toUpperCase()}
     </span>
 
     <p
-        class="text-secondary text-left font-mont-alter font-[400] text-[12px] leading-[22px] mt-3 max-w-[282px] relative z-10"
+        class="text-secondary text-left font-mont-alter font-[400] text-[12px] sm:text-[16px] md:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[30px] mt-3 max-w-[282px] sm:max-w-[382px] md:max-w-[482px] relative z-10"
     >
         {description}
     </p>
@@ -43,8 +43,8 @@ const { title, description, image, index } = Astro.props;
     <Button
         variant="outline"
         text={`заказать`.toUpperCase()}
-        width="w-[150px]"
-        height="h-[40px]"
-        className="text-[14px] mt-5 relative z-10"
+        width="w-[150px] sm:w-[180px] md:w-[200px]"
+        height="h-[40px] sm:h-[45px] md:h-[50px]"
+        className="text-[14px] sm:text-[16px] md:text-[18px] mt-5 relative z-10"
     />
 </div>

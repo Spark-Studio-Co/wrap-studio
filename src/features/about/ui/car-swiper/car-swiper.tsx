@@ -33,6 +33,7 @@ export default function CarSwiper() {
                     setCurrentIndex(swiper.activeIndex);
                 }}
                 className="h-auto overflow-visible"
+                style={{ boxShadow: '0px 0px 128px 0px #50C87840' }}
             >
                 {carImages.map((src, index) => (
                     <SwiperSlide
@@ -44,7 +45,7 @@ export default function CarSwiper() {
                         style={{
                             transition: animating ? "opacity 0.9s ease, transform 0.9s ease" : "none",
                             willChange: "opacity, transform",
-                            boxShadow: '0px 4px 128px -32px #50C87840'
+                            boxShadow: '0px 4px 128px 0px #50C87840'
                         }}
                         onTransitionEnd={() => setAnimating(false)}
                     >

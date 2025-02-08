@@ -28,7 +28,7 @@ export const Form = () => {
                     onChange={onChange}
                 />
             ))}
-            <button type="submit" className="w-[210px] h-[50px] bg-primary rounded-[32px] text-white text-[16px] font-mont-alter font-[500] mt-4 uppercase">Отправить</button>
+            <button type="submit" className="w-[210px] sm:w-[240px] h-[50px] sm:h-[55px] bg-primary rounded-[32px] text-white text-[16px] sm:text-[18px] font-mont-alter font-[500] mt-4 sm:mt-6 md:mt-8 uppercase">Отправить</button>
         </form>
     );
 };
