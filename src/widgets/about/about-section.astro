@@ -2,24 +2,43 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import { CountUpComponent } from "../../features/about/ui/count-up/count-up.tsx";
+import AboutTab from "../../features/about/ui/about-tab/about-tab.astro";
 
 import { countUps } from "../../features/about/model/count-ups";
+import { aboutTabs } from "../../features/about/model/about-tabs";
 ---
 
 <section
     class="relative max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px]"
 >
-    <Heading level={3} text="// О нас" />
-    <Paragraph
-        text="Наш центр работает с материалами премиальных брендов и только с оригинальной продукцией. В их число входит: STEK, HOGOMAKU, LLUMAR."
-        variant="main"
-        className="mt-8 mb-[64px] sm:w-[80%]"
-    />
-    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+    <div
+        class="flex lg:flex-row-reverse flex-col items-center lg:items-start lg:justify-between w-full lg:mt-8 lg:mb-[64px]"
+    >
+        <Heading level={3} text="// О нас" />
+        <Paragraph
+            text="Наш центр работает с материалами премиальных брендов и только с оригинальной продукцией. В их число входит: STEK, HOGOMAKU, LLUMAR."
+            variant="main"
+            className="mt-8 mb-[64px] lg:mb-0 lg:mt-0 sm:w-[80%] lg:w-[60%] xl:w-[65%]"
+            align="text-center lg:text-left"
+        />
+    </div>
+    <div
+        class="flex flex-col md:flex-row items-center justify-center gap-8 lg:hidden"
+    >
         {
             countUps.map((countUp) => (
                 <CountUpComponent {...countUp} client:only />
             ))
         }
+    </div>
+    <div class="hidden lg:flex flex-row items-center justify-between w-full">
+        {
+            countUps.map((countUp) => (
+                <CountUpComponent {...countUp} isRow client:only />
+            ))
+        }
+    </div>
+    <div class="hidden lg:flex flex-row items-center justify-between w-full">
+        {aboutTabs.map((aboutTab) => <AboutTab {...aboutTab} />)}
     </div>
 </section>

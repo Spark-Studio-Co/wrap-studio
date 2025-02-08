@@ -3,7 +3,7 @@ interface Props {
     text: string;
     className?: string;
     variant?: "hero" | "main";
-    align?: "left" | "center";
+    align?: string;
 }
 
 const {
@@ -18,9 +18,9 @@ const {
     class:list={[
         "font-mont-alter",
         variant === "hero"
-            ? "font-[300] text-[15px] sm:text-[20px] text-white leading-6 sm:leading-7"
-            : "font-[400] text-secondary text-[20px] sm:text-[24px] leading-6 sm:leading-8",
-        align === "left" ? "text-left" : "text-center",
+            ? "font-[300] text-[15px] sm:text-[20px] lg:text-[16px] text-white leading-6 sm:leading-7"
+            : "font-[400] text-secondary text-[20px] sm:text-[24px] lg:text-[22px] xl:text-[28px] 2xl:text-[32px] leading-6 sm:leading-8 xl:leading-[44px]",
+        align,
         className,
     ]}
 >

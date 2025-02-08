@@ -94,7 +94,7 @@ const Menu = () => {
                     <a
                         key={link.href}
                         href={link.href}
-                        className="menu-item font-gotham block text-3xl font-montserrat font-medium mb-8 text-primary"
+                        className="menu-item font-gotham block text-3xl font-medium mb-8 text-primary"
                         onClick={handleLinkClick}
                     >
                         {link.label.toUpperCase()}

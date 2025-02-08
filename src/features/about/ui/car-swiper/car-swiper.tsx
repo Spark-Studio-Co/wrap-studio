@@ -52,28 +52,30 @@ export default function CarSwiper() {
                         <img
                             src={src.src}
                             alt={`Slide ${index + 1}`}
-                            className="w-full h-auto min-h-[500px] object-cover aspect-[4/3] transition-all duration-[900ms] ease-in-out"
+                            className="w-full h-[500px] object-cover  transition-all duration-[900ms] ease-in-out"
                             style={{ boxShadow: '0px 0px 128px -32px #50C87840' }}
                         />
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <div className="relative flex gap-x-8 justify-center mt-8">
-                <CarSwiperButton
-                    onClick={() => swiperInstance?.slidePrev()}
-                    variant="prev"
-                />
-                <CarSwiperButton
-                    onClick={() => swiperInstance?.slideNext()}
-                    variant="next"
-                />
-            </div>
+            <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto ">
+                <div className="relative flex gap-x-8 justify-center mt-8">
+                    <CarSwiperButton
+                        onClick={() => swiperInstance?.slidePrev()}
+                        variant="prev"
+                    />
+                    <CarSwiperButton
+                        onClick={() => swiperInstance?.slideNext()}
+                        variant="next"
+                    />
+                </div>
 
-            {/* Счетчик */}
-            <span className="relative text-white font-gotham text-center text-[32px] font-[400] flex items-center justify-center mt-12">
-                {String(currentIndex + 1).padStart(2, "0")}/{String(carImages.length).padStart(2, "0")}
-            </span>
+                {/* Счетчик */}
+                <span className="relative text-white font-gotham text-center text-[32px] font-[400] flex items-center justify-center mt-12">
+                    {String(currentIndex + 1).padStart(2, "0")}/{String(carImages.length).padStart(2, "0")}
+                </span>
+            </div>
         </div>
     );
 }

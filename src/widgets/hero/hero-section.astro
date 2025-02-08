@@ -2,10 +2,10 @@
 import { Image } from "astro:assets";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../shared/ui/button/button.astro";
-import { Header } from "../../features/navigation/ui/header/header";
 
 import Wrap from "/public/images/wrap.svg";
 import Studio from "/public/images/studio.svg";
+import LogoIconPc from "/public/images/logo-icon-pc.svg";
 import BackgroundVideo from "/public/videos/video.mp4";
 ---
 
@@ -13,7 +13,7 @@ import BackgroundVideo from "/public/videos/video.mp4";
     .video-section {
         position: relative;
         width: 100%;
-        height: 100dvh;
+        height: 100svh;
         display: flex;
         overflow: hidden;
     }
@@ -26,7 +26,7 @@ import BackgroundVideo from "/public/videos/video.mp4";
         height: 102%;
         object-fit: cover;
         transform: translate(-50%, -50%);
-        z-index: -1; /* Чтобы видео было фоном */
+        z-index: -1;
     }
 
     .overlay {
@@ -35,7 +35,7 @@ import BackgroundVideo from "/public/videos/video.mp4";
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9); /* затемнение */
+        background: rgba(0, 0, 0, 0.9);
         z-index: 0;
     }
 
@@ -58,28 +58,36 @@ import BackgroundVideo from "/public/videos/video.mp4";
         <div
             class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
         >
-            <h1 class="flex items-center flex-col mt-[228px]">
+            <div class="lg:flex-grow"></div>
+            <h1
+                class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-8"
+            >
                 <Image
                     src={Wrap}
                     alt="Wrap"
-                    class="w-[240px] sm:w-[300px] md:w-[340px]"
+                    class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
                 />
                 <Image
                     src={Studio}
                     alt="Studio"
-                    class="w-[240px] sm:w-[300px] md:w-[340px] mt-4"
+                    class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
+                />
+                <Image
+                    src={LogoIconPc}
+                    alt="Logo Icon"
+                    class="hidden lg:flex"
                 />
             </h1>
             <Paragraph
                 variant="hero"
                 text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
-                className="mt-4 sm:mt-8 sm: w-[80%] md:w-[60%]"
+                className="mt-4 sm:mt-8 sm:w-[80%] md:w-[60%] lg:w-[75%] xl:w-[60%] lg:mb-28 xl:mb-36 2xl:mb-48"
             />
             <Button
                 text={"Связаться с нами".toUpperCase()}
                 variant="link"
                 href="#contacts"
-                className="mt-[64px]"
+                className="mt-[64px] lg:hidden flex"
             />
         </div>
     </section>
