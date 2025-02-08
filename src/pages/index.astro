@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 import CarSwiper from "../features/about/ui/car-swiper/car-swiper";
+import Menu from "../features/navigation/ui/menu/menu";
+import { Header } from "../features/navigation/ui/header/header";
 
 //sections
 import HeroSection from "../widgets/hero/hero-section.astro";
@@ -13,6 +15,7 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 ---
 
 <Layout>
+	<Header client:load />
 	<HeroSection />
 	<div class="bg-[#080808]">
 		<ServicesSection />
@@ -22,4 +25,5 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 		<PortfolioSection />
 		<ContactsSection />
 	</div>
+	<Menu client:load />
 </Layout>
