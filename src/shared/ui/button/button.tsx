@@ -15,14 +15,14 @@ const Button: React.FC<Props> = ({
     href,
     className = "",
     variant = "default",
-    width = "w-[210px] sm:w-[240px] lg:w-[190px] xl:w-[210px]",
-    height = "h-[50px] sm:h-[55px] lg:h-[45px] xl:h-[50px]",
+    width = "w-[210px] sm:w-[240px] lg:w-[190px] xl:w-[220px]",
+    height = "h-[50px] sm:h-[55px] lg:h-[45px] xl:h-[55px]",
     onClick,
 }) => {
     const classes = [
         width,
         height,
-        "font-mont-alter leading-[24px] flex items-center justify-center rounded-[32px]",
+        "font-mont-alter flex items-center justify-center rounded-[32px]",
         variant === "default"
             ? "bg-primary font-medium text-white text-[16px] sm:text-[18px]"
             : variant === "outline"
@@ -32,7 +32,7 @@ const Button: React.FC<Props> = ({
     ].join(" ");
 
     return variant === "link" ? (
-        <a href={href} className={`${width} ${height} ${className} bg-primary hover:bg-transparent hover:text-primary transition-colors duration-300 hover:border-primary hover:border font-medium text-white text-[16px] sm:text-[18px] lg:text-[14px] xl:text-[16px]  font-mont-alter leading-[24px] flex items-center justify-center rounded-[32px]`}>
+        <a href={href} className={`${width} ${height} ${className} bg-primary hover:bg-transparent hover:text-primary transition-colors duration-300 hover:border-primary hover:border font-medium text-white text-[16px] sm:text-[18px] lg:text-[14px] xl:text-[16px] font-mont-alter flex items-center justify-center rounded-[32px]`}>
             {text}
         </a>
     ) : (

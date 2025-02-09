@@ -4,7 +4,7 @@ import Button from "../../../../shared/ui/button/button.astro";
 interface Props {
     title: string;
     description: string;
-    image: string;
+    image: ImageMetadata;
     index: number;
     className?: string;
 }
@@ -35,7 +35,7 @@ const { title, description, image, index, className } = Astro.props;
     </p>
     <div
         class="relative w-full h-auto bg-cover bg-center rounded-[12px] mt-4"
-        style={`background-image: url(${image}); padding-bottom: 56.25%;`}
+        style={`background-image: url(${image.src}); padding-bottom: 56.25%;`}
     >
     </div>
     <div class="lg:flex-grow"></div>

@@ -1,9 +1,12 @@
 ---
-import { Image } from "astro:assets";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../shared/ui/button/button.astro";
 
 import BackgroundVideo from "/public/videos/video.mp4";
+
+import WrapIcon from "/public/images/wrap.svg";
+import StudioIcon from "/public/images/studio.svg";
+import LogoIcon from "/public/images/logo-icon-pc.svg";
 ---
 
 <style>
@@ -60,17 +63,17 @@ import BackgroundVideo from "/public/videos/video.mp4";
                 class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-8"
             >
                 <img
-                    src="/public/images/wrap.svg"
+                    src={WrapIcon.src}
                     alt="Wrap"
                     class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
                 />
                 <img
-                    src="/public/images/studio.svg"
+                    src={StudioIcon.src}
                     alt="Studio"
                     class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
                 />
                 <img
-                    src="/public/images/logo-icon-pc.svg"
+                    src={LogoIcon.src}
                     alt="Logo Icon"
                     class="hidden lg:flex"
                 />
