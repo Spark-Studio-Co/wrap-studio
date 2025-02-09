@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { useMenuStore } from "../../model/menu-store";
 import { useBurgerMenuStore } from "../../model/burger-menu-store";
 
-import InstagramIconDark from "/public/images/instagram-icon-darker.svg";
 import { links } from "../../model/links";
 
 const Menu = () => {
@@ -116,7 +115,7 @@ const Menu = () => {
                     Ул. нуркина 104/1
                 </a>
                 <a href="https://www.instagram.com/wrap_studio.pvl" target="_blank" className="mt-4">
-                    <img src={InstagramIconDark.src} alt="Instagram Icon" />
+                    <img src='/public/images/instagram-icon-darker.svg' alt="Instagram Icon" />
                 </a>
             </div>
         </div>

@@ -1,8 +1,5 @@
 ---
 import Button from "../../../../shared/ui/button/button.astro";
-import Image from "astro/components/Image.astro";
-
-import TablerWheelIcon from "/public/images/tabler-wheel-icon.svg";
 
 interface Props {
     title: string;
@@ -36,8 +33,8 @@ const { title, price, descriptors, isExtended } = Astro.props;
             {
                 descriptors.map((descriptor) => (
                     <div class={`flex items-start gap-3`}>
-                        <Image
-                            src={TablerWheelIcon}
+                        <img
+                            src="/public/images/tabler-wheel-icon.svg"
                             alt="Tabler Wheel Icon"
                             class="self-start shrink-0"
                         />
