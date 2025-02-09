@@ -49,7 +49,7 @@ export default function CarSwiper() {
                 className="h-auto overflow-visible"
                 style={{ boxShadow: '0px 0px 0px 0px #50C87840' }}
             >
-                {carImages.map((src, index) => (
+                {carImages.map((image, index) => (
                     <SwiperSlide
                         key={index}
                         className={`relative flex items-center justify-center transition-all duration-[900ms] ease-in-out ${index === currentIndex
@@ -65,7 +65,7 @@ export default function CarSwiper() {
                     >
                         <div
                             className="relative w-full h-[500px] bg-cover bg-center transition-all duration-[900ms] ease-in-out"
-                            style={{ backgroundImage: `url(${src})`, paddingBottom: '56.25%', boxShadow: '0px 0px 128px -32px #50C87840' }}
+                            style={{ backgroundImage: `url(${image.src})`, paddingBottom: '56.25%', boxShadow: '0px 0px 128px -32px #50C87840' }}
                         >
                         </div>
                     </SwiperSlide>

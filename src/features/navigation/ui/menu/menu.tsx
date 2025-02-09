@@ -4,6 +4,7 @@ import { useMenuStore } from "../../model/menu-store";
 import { useBurgerMenuStore } from "../../model/burger-menu-store";
 
 import { links } from "../../model/links";
+import InstagramIcon from "/public/images/instagram-icon-darker.svg";
 
 const Menu = () => {
     const menuRef = useRef<HTMLDivElement>(null);
@@ -115,7 +116,7 @@ const Menu = () => {
                     Ул. нуркина 104/1
                 </a>
                 <a href="https://www.instagram.com/wrap_studio.pvl" target="_blank" className="mt-4">
-                    <img src='/public/images/instagram-icon-darker.svg' alt="Instagram Icon" />
+                    <img src={InstagramIcon.src} alt="Instagram Icon" />
                 </a>
             </div>
         </div>

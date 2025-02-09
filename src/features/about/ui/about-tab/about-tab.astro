@@ -1,4 +1,6 @@
 ---
+import StarIcon from "/public/images/star-icon.svg";
+
 interface Props {
     label: string;
 }
@@ -7,7 +9,7 @@ const { label } = Astro.props;
 ---
 
 <div class="flex flex-row items-center gap-4">
-    <img src="/public/images/star-icon.svg" alt="Star Icon" />
+    <img src={StarIcon.src} alt="Star Icon" />
     <span
         class="font-mont-alter text-white font-[500] lg:text-[16px] xl:text-[20px] 2xl:text-[24px] lg:leading-[24px] xl:leading-[32px] 2xl:leading-[40px] italic"
     >

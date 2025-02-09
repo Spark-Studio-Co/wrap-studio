@@ -4,7 +4,7 @@ import Button from '../../../../shared/ui/button/button'
 
 
 import { links } from "../../model/links";
-import logo from '/public/images/logo-icon-pc.svg'
+import logo from '/public/images/logo.svg'
 
 export const Header = () => {
 
