@@ -2,24 +2,74 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import PriceCard from "../../features/price/ui/price-card/price-card.astro";
-
 import { mockData } from "../../features/price/lib/mock-data";
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px]"
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px] lg:mt-0 leading-none"
 >
-    <Heading level={4} text="// Прайс-лист" />
-    <Paragraph
-        text="Защита и безупречный вид вашего автомобиля."
-        variant="main"
-        className="mt-8 mb-8 sm:w-[80%] md:w-[60%]"
-    />
-    {
-        mockData.map((card) => (
-            <div class="flex flex-col items-center mb-8 last:mb-0 w-full">
-                <PriceCard {...card} />
-            </div>
-        ))
-    }
+    <span
+        class="hidden lg:flex justify-center items-center lg:text-[260px] xl:text-[340px] 2xl:text-[420px] font-walk-da-walk font-[400] text-[#50C87805] z-0 uppercase"
+        style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
+    >
+        detailing
+    </span>
+
+    <div class="flex lg:hidden flex-col items-center w-full">
+        <Heading level={4} text="// Прайс-лист" />
+        <Paragraph
+            text="Защита и безупречный вид вашего автомобиля."
+            variant="main"
+            className="mt-8 mb-8 sm:w-[80%] md:w-[60%]"
+            align="text-center"
+        />
+        <div>
+            {
+                mockData.map((card) => (
+                    <div class="flex flex-col items-center mb-8 last:mb-0 w-full">
+                        <PriceCard {...card} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="hidden xl:hidden lg:flex w-full">
+        <div class="hidden lg:grid lg:grid-cols-2 gap-x-4">
+            {
+                mockData.slice(0, 2).map((card) => (
+                    <div class="flex flex-col items-center last:mb-0 w-full">
+                        <PriceCard {...card} />
+                    </div>
+                ))
+            }
+            {
+                mockData.slice(2, 4).map((card) => (
+                    <div class="flex mt-4 flex-col items-center last:mb-0 w-full">
+                        <PriceCard {...card} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="hidden xl:block w-full">
+        <div class="hidden xl:grid xl:grid-cols-3 gap-x-4">
+            {
+                mockData.slice(0, 3).map((card) => (
+                    <div class="flex flex-col items-center last:mb-0 w-full">
+                        <PriceCard {...card} />
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="hidden xl:flex xl:col-span-3 w-full mt-8">
+            {
+                mockData
+                    .slice(3, 4)
+                    .map((card) => <PriceCard {...card} isExtended />)
+            }
+        </div>
+    </div>
 </section>

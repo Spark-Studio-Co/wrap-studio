@@ -4,6 +4,7 @@ import type { Swiper as SwiperInstance } from "swiper";
 import { CarSwiperButton } from "./car-swiper-button";
 import "swiper/css";
 import "swiper/css/pagination";
+
 import { carImages } from "../../lib/car-swiper";
 
 export default function CarSwiper() {
@@ -32,8 +33,21 @@ export default function CarSwiper() {
                     setAnimating(true);
                     setCurrentIndex(swiper.activeIndex);
                 }}
+                breakpoints={{
+                    1024: {
+                        spaceBetween: 32,
+                        slidesPerView: 1.3,
+                    },
+                    1280: {
+                        spaceBetween: 64,
+                        slidesPerView: 1.5,
+                    },
+                    1536: {
+                        slidesPerView: 1.7,
+                    }
+                }}
                 className="h-auto overflow-visible"
-                style={{ boxShadow: '0px 0px 128px 0px #50C87840' }}
+                style={{ boxShadow: '0px 0px 0px 0px #50C87840' }}
             >
                 {carImages.map((src, index) => (
                     <SwiperSlide
@@ -49,12 +63,11 @@ export default function CarSwiper() {
                         }}
                         onTransitionEnd={() => setAnimating(false)}
                     >
-                        <img
-                            src={src.src}
-                            alt={`Slide ${index + 1}`}
-                            className="w-full h-[500px] object-cover  transition-all duration-[900ms] ease-in-out"
-                            style={{ boxShadow: '0px 0px 128px -32px #50C87840' }}
-                        />
+                        <div
+                            className="relative w-full h-[500px] bg-cover bg-center transition-all duration-[900ms] ease-in-out"
+                            style={{ backgroundImage: `url(${src})`, paddingBottom: '56.25%', boxShadow: '0px 0px 128px -32px #50C87840' }}
+                        >
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
