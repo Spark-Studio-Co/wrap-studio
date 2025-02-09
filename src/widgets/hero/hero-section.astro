@@ -3,9 +3,6 @@ import { Image } from "astro:assets";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "../../shared/ui/button/button.astro";
 
-import Wrap from "/public/images/wrap.svg";
-import Studio from "/public/images/studio.svg";
-import LogoIconPc from "/public/images/logo-icon-pc.svg";
 import BackgroundVideo from "/public/videos/video.mp4";
 ---
 
@@ -62,26 +59,20 @@ import BackgroundVideo from "/public/videos/video.mp4";
             <h1
                 class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-8"
             >
-                <Image
-                    src={Wrap}
+                <img
+                    src="/public/images/wrap.svg"
                     alt="Wrap"
                     class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
-                    loading="eager"
-                    decoding="async"
                 />
-                <Image
-                    src={Studio}
+                <img
+                    src="/public/images/studio.svg"
                     alt="Studio"
                     class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
-                    loading="eager"
-                    decoding="async"
                 />
-                <Image
-                    src={LogoIconPc}
+                <img
+                    src="/public/images/logo-icon-pc.svg"
                     alt="Logo Icon"
                     class="hidden lg:flex"
-                    loading="eager"
-                    decoding="async"
                 />
             </h1>
             <Paragraph
