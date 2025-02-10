@@ -2,6 +2,7 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import ServiceCard from "../../features/services/ui/service-card/service-card.astro";
+import { ServiceCard3d } from "../../features/services/ui/service-card/service-card";
 
 import { services } from "../../features/services/model/services";
 ---
@@ -33,7 +34,7 @@ import { services } from "../../features/services/model/services";
                 services
                     .slice(0, 3)
                     .map((service, index) => (
-                        <ServiceCard {...service} index={index} />
+                        <ServiceCard3d {...service} index={index} client:load />
                     ))
             }
         </div>
@@ -42,10 +43,11 @@ import { services } from "../../features/services/model/services";
                 services
                     .slice(3, 5)
                     .map((service, index) => (
-                        <ServiceCard
+                        <ServiceCard3d
                             {...service}
                             index={index + 3}
                             className="col-span-1 w-full"
+                            client:load
                         />
                     ))
             }

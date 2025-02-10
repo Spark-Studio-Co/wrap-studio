@@ -15,15 +15,17 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 ---
 
 <Layout>
-	<Header client:load />
-	<HeroSection />
-	<div class="bg-[#080808]">
-		<ServicesSection />
-		<AboutSection />
-		<CarSwiper client:load />
-		<PriceSection />
-		<PortfolioSection />
-		<ContactsSection />
+	<div class="relative w-full overflow-x-hidden">
+		<Header client:load />
+		<HeroSection />
+		<div class="bg-[#080808]">
+			<ServicesSection />
+			<AboutSection />
+			<CarSwiper client:load />
+			<PriceSection />
+			<PortfolioSection />
+			<ContactsSection />
+		</div>
+		<Menu client:load />
 	</div>
-	<Menu client:load />
 </Layout>

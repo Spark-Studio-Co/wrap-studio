@@ -1,45 +1,61 @@
 ---
 import { Form } from "../../features/contacts/ui/form/form.tsx";
+import { Image } from "astro:assets";
 
 import InstagramIcon from "/public/images/instagram-icon.svg";
+import contacts01 from "/public/images/contacts01.webp";
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-start flex-col mx-auto mt-[64px]"
     id="contacts"
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-start flex-col mx-auto mt-[64px] relative"
 >
     <h6
-        class="text-white font-gotham font-[500] text-[44px] sm:text-[54px] md:text-[64px] text-left uppercase"
+        class="text-white font-gotham font-[500] text-[44px] sm:text-[54px] md:text-[64px] text-left uppercase lg:hidden"
     >
         <span class="whitespace-nowrap">Свяжитесь</span>
         <br />
         <span>С НАМИ</span>
     </h6>
-    <Form client:load />
-    <div class="flex flex-col items-center justify-center w-full mt-8">
-        <a
-            href="tel:+7 702 898 83 58"
-            class="font-mont-alter font-[400] text-[20px] sm:text-[24px] md:text-[28px] text-center text-primary"
-            >+7 702 898 83 58</a
+    <h6
+        class="text-white font-gotham font-[500] lg:text-[44px] xl:text-[54px] 2xl::text-[64px] text-left uppercase hidden lg:block"
+    >
+        <span class="whitespace-nowrap">// Свяжитесь c нами</span>
+    </h6>
+    <div class="flex flex-col lg:items-start justify-center w-full">
+        <Form client:load />
+        <div
+            class="flex flex-col items-center lg:items-start justify-center w-full mt-8"
         >
-        <a
-            href="https://2gis.kz/pavlodar/search/%D0%A3%D0%BB.%20%D0%BD%D1%83%D1%80%D0%BA%D0%B8%D0%BD%D0%B0%20104%2F1/geo/15622496862608837/76.963775%2C52.250869?m=76.963813%2C52.250887%2F17.59"
-            target="_blank"
-            class="font-mont-alter font-[400] text-[20px] sm:text-[24px] md:text-[28px] text-center text-primary uppercase mt-4"
-            >Ул. нуркина 104/1</a
-        >
-        <a
-            href="https://www.instagram.com/wrap_studio.pvl"
-            target="_blank"
-            class="mt-4"
-        >
-            <img src={InstagramIcon.src} alt="Instagram Icon" />
-        </a>
-        <a
-            href="https://sparkstudio.kz/"
-            target="_blank"
-            class="font-gotham text-[20px] sm:text-[24px] font-[400] md:text-[28px] text-center text-primary mt-16 mb-8"
-            >Developed by Spark Studio</a
-        >
+            <a
+                href="tel:+7 702 898 83 58"
+                class="font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary"
+                >+7 702 898 83 58</a
+            >
+            <a
+                href="https://2gis.kz/pavlodar/search/%D0%A3%D0%BB.%20%D0%BD%D1%83%D1%80%D0%BA%D0%B8%D0%BD%D0%B0%20104%2F1/geo/15622496862608837/76.963775%2C52.250869?m=76.963813%2C52.250887%2F17.59"
+                target="_blank"
+                class="font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary uppercase mt-4"
+                >Ул. нуркина 104/1</a
+            >
+            <a
+                href="https://www.instagram.com/wrap_studio.pvl"
+                target="_blank"
+                class="mt-4"
+            >
+                <Image src={InstagramIcon} alt="Instagram Icon" />
+            </a>
+            <a
+                href="https://sparkstudio.kz/"
+                target="_blank"
+                class="font-gotham text-[20px] sm:text-[24px] font-[400] md:text-[28px] text-center text-primary mt-16 mb-8"
+                >Developed by Spark Studio
+            </a>
+        </div>
     </div>
+    <Image
+        src={contacts01}
+        alt="Wheat"
+        class="absolute lg:flex hidden mx-auto -right-96 xl:-right-80 2xl:-right-96 5xl:-right-[30rem] 6xl:-right-[40rem] 7xl:-right-[45rem] bottom-0 3xl:bottom-20 4xl:bottom-10 xl:w-[900px] xl:h-[500px] 2xl:w-[1000px] 2xl:h-[600px] 3xl:w-[1200px] 3xl:h-[700px] 4xl:w-[1300px] 4xl:h-[800px]"
+    />
 </section>

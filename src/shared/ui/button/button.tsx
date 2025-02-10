@@ -8,6 +8,7 @@ interface Props {
     width?: string;
     height?: string;
     onClick?: () => void;
+    type?: string;
 }
 
 const Button: React.FC<Props> = ({
@@ -24,7 +25,7 @@ const Button: React.FC<Props> = ({
         height,
         "font-mont-alter flex items-center justify-center rounded-[32px]",
         variant === "default"
-            ? "bg-primary font-medium text-white text-[16px] sm:text-[18px]"
+            ? "bg-primary font-medium text-white text-[16px] sm:text-[18px] hover:bg-transparent hover:border hover:border-primary uppercase transition-colors duration-300"
             : variant === "outline"
                 ? "bg-transparent border border-primary font-medium text-primary text-[16px] sm:text-[18px]"
                 : "font-medium text-secondary text-[16px] sm:text-[18px]",

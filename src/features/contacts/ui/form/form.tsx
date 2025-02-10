@@ -1,5 +1,6 @@
 import { Input } from '../../../../shared/ui/input/input';
 import { useState } from 'react';
+import Button from '@/shared/ui/button/button';
 
 
 export const Form = () => {
@@ -17,7 +18,7 @@ export const Form = () => {
     ];
 
     return (
-        <form className="flex flex-col w-full gap-4 mt-8 items-center ">
+        <form className="flex flex-col w-full gap-4 mt-8 items-center lg:items-start lg:max-w-[55%] 3xl:max-w-[45%]">
             {formFields.map(({ placeholder, type, name, value, onChange }, index) => (
                 <Input
                     key={index}
@@ -28,7 +29,7 @@ export const Form = () => {
                     onChange={onChange}
                 />
             ))}
-            <button type="submit" className="w-[210px] sm:w-[240px] h-[50px] sm:h-[55px] bg-primary rounded-[32px] text-white text-[16px] sm:text-[18px] font-mont-alter font-[500] mt-4 sm:mt-6 md:mt-8 uppercase">Отправить</button>
+            <Button text="Отправить" type="submit" className="mt-4 sm:mt-6 md:mt-8" />
         </form>
     );
 };
