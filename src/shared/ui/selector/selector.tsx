@@ -8,9 +8,10 @@ interface SelectInputProps {
     value: string[];
     onChange: (value: string[]) => void;
     isPopup?: boolean;
+    className?: string;
 }
 
-export const SelectInput = ({ options, name, value, onChange, isPopup = false }: SelectInputProps) => {
+export const SelectInput = ({ options, name, value, onChange, isPopup = false, className = '' }: SelectInputProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOption = (option: string) => {
@@ -33,7 +34,7 @@ export const SelectInput = ({ options, name, value, onChange, isPopup = false }:
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <ChevronDown className="w-5 h-5 text-white" />
+                    <ChevronDown className="w-5 h-5 text-primary" />
                 </motion.div>
             </button>
 
@@ -44,7 +45,7 @@ export const SelectInput = ({ options, name, value, onChange, isPopup = false }:
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute left-0 top-full w-full mt-1 bg-black border border-secondary-dark overflow-hidden max-h-32 sm:max-h-40 lg:max-h-36 overflow-y-auto"
+                        className="absolute z-50 left-0 top-full w-full mt-1 bg-black border border-secondary-dark overflow-hidden max-h-32 sm:max-h-40 lg:max-h-36 overflow-y-auto"
                     >
                         {options.map((option) => (
                             <li

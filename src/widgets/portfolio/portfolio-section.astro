@@ -12,20 +12,127 @@ import { portfolioCards } from "../../features/portfolio/lib/mock-data";
     id="portfolio"
 >
     <div
+        id="portfolioHeadingWrapper"
         class="lg:flex lg:flex-row-reverse lg:justify-between lg:items-start w-full flex items-center justify-center flex-col"
     >
-        <Heading level={5} text="// Портфолио" />
-        <Paragraph
-            text="Оклейте авто бронепленкой 1 раз и забудьте о сколах, царапинах и полировках на 7-10 лет!"
-            variant="main"
-            className="mt-8 mb-8 lg:mt-0 lg:mb-0 sm:w-[80%] md:w-[60%] lg:w-[50%]"
-            align="lg:text-left text-center"
-        />
+        <div
+            id="portfolioHeading"
+            class="opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-[50px]"
+        >
+            <Heading level={5} text="// Портфолио" />
+        </div>
+        <div
+            id="portfolioParagraph"
+            class="opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-[-50px] mt-8 mb-8 lg:mt-0 lg:mb-0 sm:w-[80%] md:w-[60%] lg:w-[50%]"
+        >
+            <Paragraph
+                text="Оклейте авто бронепленкой 1 раз и забудьте о сколах, царапинах и полировках на 7-10 лет!"
+                variant="main"
+                align="lg:text-left text-center"
+            />
+        </div>
     </div>
+
     <div
+        id="portfolioCards"
         class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-16 items-center mt-8 mb-12 last:mb-0 w-full"
     >
-        {portfolioCards.map((card) => <PortfolioCard {...card} client:load />)}
+        {
+            portfolioCards.map((card, index) => (
+                <div class="portfolio-card opacity-0 translate-y-10">
+                    <PortfolioCard {...card} client:load />
+                </div>
+            ))
+        }
     </div>
-    <Button text={`Смотреть все`.toUpperCase()} variant="outline" />
+
+    <div id="portfolioButton" class="opacity-0 translate-y-10 scale-90">
+        <Button text={`Смотреть все`.toUpperCase()} variant="outline" />
+    </div>
 </section>
+
+<!-- GSAP-анимация -->
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.innerWidth < 1024; // lg breakpoint
+
+        // Анимация заголовка
+        gsap.fromTo(
+            "#portfolioHeading",
+            { opacity: 0, y: isMobile ? 20 : 0, x: isMobile ? 0 : 50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#portfolioHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация описания (Paragraph)
+        gsap.fromTo(
+            "#portfolioParagraph",
+            { opacity: 0, y: isMobile ? 20 : 0, x: isMobile ? 0 : -50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#portfolioHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация карточек портфолио
+        const portfolioCards =
+            gsap.utils.toArray<HTMLElement>(".portfolio-card");
+        gsap.fromTo(
+            portfolioCards,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#portfolioCards",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация кнопки "Смотреть все"
+        gsap.fromTo(
+            "#portfolioButton",
+            { opacity: 0, y: 20, scale: 0.9 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.5,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: "#portfolioButton",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+    });
+</script>

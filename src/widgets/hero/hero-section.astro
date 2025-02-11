@@ -1,6 +1,6 @@
 ---
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import Button from "@/shared/ui/button/button";
+import Button from "@/shared/ui/button/button.astro";
 import { Image } from "astro:assets";
 
 import BackgroundVideo from "/public/videos/video.mp4";
@@ -13,7 +13,7 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
     .video-section {
         position: relative;
         width: 100%;
-        height: 100svh;
+        height: 100vh;
         display: flex;
         overflow: hidden;
     }
@@ -43,6 +43,7 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
         position: relative;
         z-index: 1;
         text-align: center;
+        opacity: 0; /* Скрываем контент, пока не запустится анимация */
     }
 </style>
 
@@ -56,6 +57,7 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
         <div class="overlay"></div>
 
         <div
+            id="heroContent"
             class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
         >
             <div class="lg:flex-grow 4xl:flex-none"></div>
@@ -99,3 +101,52 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
         </div>
     </section>
 </main>
+
+<!-- GSAP Анимация -->
+<script>
+    import { gsap } from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const tl = gsap.timeline();
+
+        tl.to("#heroContent", {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+        });
+
+        tl.from(
+            "#heroContent h1",
+            {
+                opacity: 0,
+                y: 50,
+                duration: 1.2,
+                ease: "power3.out",
+            },
+            "-=1",
+        );
+
+        tl.from(
+            "#heroContent p",
+            {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                ease: "power3.out",
+            },
+            "-=0.8",
+        );
+
+        tl.from(
+            "#heroContent button",
+            {
+                opacity: 0,
+                scale: 0.9,
+                duration: 1,
+                ease: "power3.out",
+            },
+            "-=0.8",
+        );
+    });
+</script>

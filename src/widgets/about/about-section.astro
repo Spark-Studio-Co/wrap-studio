@@ -13,24 +13,25 @@ import { aboutTabs } from "../../features/about/model/about-tabs";
     id="about"
 >
     <div
+        id="aboutHeadingWrapper"
         class="flex lg:flex-row-reverse flex-col items-center lg:items-start lg:justify-between w-full lg:mt-8 lg:mb-[64px]"
     >
-        <Heading level={3} text="// О нас" />
-        <Paragraph
-            text="Наш центр работает с материалами премиальных брендов и только с оригинальной продукцией. В их число входит: STEK, HOGOMAKU, LLUMAR."
-            variant="main"
-            className="mt-8 mb-[64px] lg:mb-0 lg:mt-0 sm:w-[80%] lg:w-[60%] xl:w-[65%]"
-            align="text-center lg:text-left"
-        />
-    </div>
-    <div
-        class="flex flex-col md:flex-row items-center justify-center gap-8 lg:hidden"
-    >
-        {
-            countUps.map((countUp) => (
-                <CountUpComponent {...countUp} client:only />
-            ))
-        }
+        <div
+            id="aboutHeading"
+            class="opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-[50px]"
+        >
+            <Heading level={3} text="// О нас" />
+        </div>
+        <div
+            id="aboutParagraph"
+            class="opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-[-50px] mt-8 mb-[64px] lg:mb-0 lg:mt-0 sm:w-[80%] lg:w-[60%] xl:w-[65%]"
+        >
+            <Paragraph
+                text="Наш центр работает с материалами премиальных брендов и только с оригинальной продукцией. В их число входит: STEK, HOGOMAKU, LLUMAR."
+                variant="main"
+                align="text-center lg:text-left"
+            />
+        </div>
     </div>
     <div class="hidden lg:flex flex-row items-center justify-between w-full">
         {
@@ -40,6 +41,77 @@ import { aboutTabs } from "../../features/about/model/about-tabs";
         }
     </div>
     <div class="hidden lg:flex flex-row items-center justify-between w-full">
-        {aboutTabs.map((aboutTab) => <AboutTab {...aboutTab} />)}
+        <div
+            id="aboutTabs"
+            class="w-full flex flex-row items-center justify-between opacity-0 translate-y-10"
+        >
+            {aboutTabs.map((aboutTab) => <AboutTab {...aboutTab} />)}
+        </div>
     </div>
 </section>
+
+<!-- GSAP-анимация -->
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.innerWidth < 1024; // lg breakpoint
+
+        // Анимация заголовка
+        gsap.fromTo(
+            "#aboutHeading",
+            { opacity: 0, y: isMobile ? 20 : 0, x: isMobile ? 0 : 50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#aboutHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация описания (Paragraph)
+        gsap.fromTo(
+            "#aboutParagraph",
+            { opacity: 0, y: isMobile ? 20 : 0, x: isMobile ? 0 : -50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#aboutHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация табов
+        gsap.fromTo(
+            "#aboutTabs",
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#aboutTabs",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+    });
+</script>

@@ -11,6 +11,7 @@ import contacts01 from "/public/images/contacts01.webp";
     class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-start flex-col mx-auto mt-[64px] relative"
 >
     <h6
+        id="contactsHeading"
         class="text-white font-gotham font-[500] text-[44px] sm:text-[54px] md:text-[64px] text-left uppercase lg:hidden"
     >
         <span class="whitespace-nowrap">Свяжитесь</span>
@@ -18,6 +19,7 @@ import contacts01 from "/public/images/contacts01.webp";
         <span>С НАМИ</span>
     </h6>
     <h6
+        id="contactsHeading"
         class="text-white font-gotham font-[500] lg:text-[44px] xl:text-[54px] 2xl::text-[64px] text-left uppercase hidden lg:block"
     >
         <span class="whitespace-nowrap">// Свяжитесь c нами</span>
@@ -25,37 +27,102 @@ import contacts01 from "/public/images/contacts01.webp";
     <div class="flex flex-col lg:items-start justify-center w-full">
         <Form client:load />
         <div
+            id="contactsInfo"
             class="flex flex-col items-center lg:items-start justify-center w-full mt-8"
         >
             <a
                 href="tel:+7 702 898 83 58"
-                class="font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary"
+                class="contact-link font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary"
                 >+7 702 898 83 58</a
             >
             <a
                 href="https://2gis.kz/pavlodar/search/%D0%A3%D0%BB.%20%D0%BD%D1%83%D1%80%D0%BA%D0%B8%D0%BD%D0%B0%20104%2F1/geo/15622496862608837/76.963775%2C52.250869?m=76.963813%2C52.250887%2F17.59"
                 target="_blank"
-                class="font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary uppercase mt-4"
+                class="contact-link font-mont-alter font-[500] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px] text-center text-primary uppercase mt-4"
                 >Ул. нуркина 104/1</a
             >
             <a
                 href="https://www.instagram.com/wrap_studio.pvl"
                 target="_blank"
-                class="mt-4"
+                class="contact-link mt-4"
             >
                 <Image src={InstagramIcon} alt="Instagram Icon" />
             </a>
             <a
                 href="https://sparkstudio.kz/"
                 target="_blank"
-                class="font-gotham text-[20px] sm:text-[24px] font-[400] md:text-[28px] text-center text-primary mt-16 mb-8 lg:mb-16"
+                class="contact-link text-primary font-gotham text-[20px] sm:text-[24px] font-[400] md:text-[28px] text-center mt-16 mb-8 lg:mb-16"
                 >Developed by Spark Studio
             </a>
         </div>
     </div>
     <Image
+        id="contactsImage"
         src={contacts01}
         alt="Wheat"
         class="absolute lg:flex hidden mx-auto -right-72 xl:-right-80 2xl:-right-[22rem] 3xl:-right-[22rem] 5xl:-right-[26rem] 6xl:-right-[36rem] bottom-0 3xl:bottom-20 4xl:bottom-10 lg:w-[850px] lg:h-[450px] xl:w-[950px] xl:h-[500px] 2xl:w-[1000px] 2xl:h-[550px] 3xl:w-[1100px] 3xl:h-[600px] 4xl:w-[1200px] 4xl:h-[650px] 5xl:w-[1250px] 5xl:h-[670px]"
     />
 </section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.innerWidth < 1024;
+
+        gsap.fromTo(
+            "#contactsHeading",
+            { opacity: 0, x: -50 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#contactsHeading",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация контактных ссылок (появление по очереди слева)
+        const contactLinks = gsap.utils.toArray<HTMLElement>(".contact-link");
+        gsap.fromTo(
+            contactLinks,
+            { opacity: 0, y: isMobile ? 30 : 0, x: isMobile ? 0 : -50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#contactsInfo",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        gsap.fromTo(
+            "#contactsImage",
+            { opacity: 0, x: 1000 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#contactsImage",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+    });
+</script>

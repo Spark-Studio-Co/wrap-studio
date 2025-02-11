@@ -19,7 +19,7 @@ interface IServiceCard {
 
 export function ServiceCard3d({ title, description, image, index, className, contentPopup }: IServiceCard) {
     const { open } = usePopupStore("servicePopup");
-    let { open: openPopup } = usePopupStore("contentPopup");
+    const { open: openPopup } = usePopupStore("contentPopup");
 
 
     return (

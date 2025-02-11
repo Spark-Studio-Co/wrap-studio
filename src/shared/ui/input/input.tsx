@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Input = ({ placeholder, type, name, value, onChange, isPopup = false }: { placeholder: string, type: string, name: string, value: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, isPopup?: boolean }) => {
+export const Input = ({ placeholder, type, name, value, onChange, isPopup = false, className = '' }: { placeholder: string, type: string, name: string, value: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, isPopup?: boolean, className?: string }) => {
     return (
         <input
             placeholder={placeholder}

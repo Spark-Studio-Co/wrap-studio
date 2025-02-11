@@ -9,14 +9,20 @@ import { mockData } from "../../features/price/lib/mock-data";
     class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px] lg:mt-0 leading-none"
     id="price"
 >
+    <!-- Фоновый текст -->
     <span
-        class="hidden select-none lg:flex justify-center items-center lg:text-[260px] xl:text-[340px] 2xl:text-[420px] font-walk-da-walk font-[400] text-[#50C87809] z-0 uppercase mb-12"
+        id="priceBackgroundText"
+        class="hidden select-none lg:flex justify-center items-center lg:text-[260px] xl:text-[340px] 2xl:text-[420px] font-walk-da-walk font-[400] text-[#50C87809] z-0 uppercase mb-12 opacity-0 scale-90"
         style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
     >
         detailing
     </span>
 
-    <div class="flex lg:hidden flex-col items-center w-full">
+    <!-- Заголовок и описание -->
+    <div
+        id="priceHeadingWrapper"
+        class="flex lg:hidden flex-col items-center w-full opacity-0 translate-y-10"
+    >
         <Heading level={4} text="// Прайс-лист" />
         <Paragraph
             text="Защита и безупречный вид вашего автомобиля."
@@ -24,29 +30,34 @@ import { mockData } from "../../features/price/lib/mock-data";
             className="mt-8 mb-8 sm:w-[80%] md:w-[60%]"
             align="text-center"
         />
-        <div>
-            {
-                mockData.map((card) => (
-                    <div class="flex flex-col items-center mb-8 last:mb-0 w-full">
-                        <PriceCard {...card} client:load />
-                    </div>
-                ))
-            }
-        </div>
+    </div>
+
+    <!-- Карточки прайс-листа -->
+    <div id="priceCardsMob" class="flex flex-col items-center w-full lg:hidden">
+        {
+            mockData.map((card) => (
+                <div class="price-card opacity-0 translate-y-10 flex flex-col items-center mb-8 last:mb-0 w-full">
+                    <PriceCard {...card} client:load />
+                </div>
+            ))
+        }
     </div>
 
     <div class="hidden xl:hidden lg:flex w-full">
-        <div class="hidden lg:grid lg:grid-cols-2 gap-x-4">
+        <div
+            id="priceCardsDesktop"
+            class="hidden lg:grid lg:grid-cols-2 gap-x-4"
+        >
             {
                 mockData.slice(0, 2).map((card) => (
-                    <div class="flex flex-col items-center last:mb-0 w-full">
+                    <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
                         <PriceCard {...card} client:load />
                     </div>
                 ))
             }
             {
                 mockData.slice(2, 4).map((card) => (
-                    <div class="flex mt-4 flex-col items-center last:mb-0 w-full">
+                    <div class="price-card opacity-0 translate-y-10 flex mt-4 flex-col items-center last:mb-0 w-full">
                         <PriceCard {...card} client:load />
                     </div>
                 ))
@@ -55,17 +66,20 @@ import { mockData } from "../../features/price/lib/mock-data";
     </div>
 
     <div class="hidden xl:block w-full">
-        <div class="hidden xl:grid xl:grid-cols-3 gap-x-4">
+        <div id="priceCardsXL" class="hidden xl:grid xl:grid-cols-3 gap-x-4">
             {
                 mockData.slice(0, 3).map((card) => (
-                    <div class="flex flex-col items-center last:mb-0 w-full">
+                    <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
                         <PriceCard {...card} client:load />
                     </div>
                 ))
             }
         </div>
 
-        <div class="hidden xl:flex xl:col-span-3 w-full mt-8">
+        <div
+            id="extendedPriceCard"
+            class="hidden xl:flex xl:col-span-3 w-full mt-8 opacity-0 translate-y-10"
+        >
             {
                 mockData
                     .slice(3, 4)
@@ -76,3 +90,126 @@ import { mockData } from "../../features/price/lib/mock-data";
         </div>
     </div>
 </section>
+
+<!-- GSAP-анимация -->
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Анимация фонового текста
+        gsap.fromTo(
+            "#priceBackgroundText",
+            { opacity: 0, scale: 0.9 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#priceBackgroundText",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация заголовка и описания
+        gsap.fromTo(
+            "#priceHeadingWrapper",
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#priceHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация карточек для мобильных
+        const priceCardsMob = gsap.utils.toArray<HTMLElement>(".price-card");
+        gsap.fromTo(
+            priceCardsMob,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#priceCardsMob",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация карточек для десктопа
+        const priceCardsDesktop = gsap.utils.toArray<HTMLElement>(
+            "#priceCardsDesktop .price-card",
+        );
+        gsap.fromTo(
+            priceCardsDesktop,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#priceCardsDesktop",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация карточек для XL-дисплеев
+        const priceCardsXL = gsap.utils.toArray<HTMLElement>(
+            "#priceCardsXL .price-card",
+        );
+        gsap.fromTo(
+            priceCardsXL,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#priceCardsXL",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация расширенной карточки
+        gsap.fromTo(
+            "#extendedPriceCard",
+            { opacity: 0, y: 30, scale: 0.95 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.5,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: "#extendedPriceCard",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+    });
+</script>
