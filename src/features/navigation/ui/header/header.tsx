@@ -15,7 +15,7 @@ export const Header = () => {
         setTimeout(() => {
             const element = document.querySelector(href as string);
             element?.scrollIntoView({ behavior: "smooth" });
-        }, 500);
+        }, 300);
     };
 
     useEffect(() => {
@@ -44,11 +44,10 @@ export const Header = () => {
                 ))}
                 <Button
                     text={"Связаться с нами".toUpperCase()}
-                    variant="link"
-                    href="#contacts"
+                    variant="default"
                     width="lg:w-[180px] xl:w-[220px]"
                     height="lg:h-[45px] xl:h-[55px]"
-                    fontSize="lg:text-[13px]"
+                    fontSize="lg:text-[13px] xl:text-[16px]"
                 />
             </nav>
         </header>

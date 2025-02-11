@@ -32,6 +32,7 @@ const Button: React.FC<Props> = ({
                 ? "bg-transparent border border-primary font-medium text-primary text-[16px] sm:text-[18px] hover:bg-primary hover:text-white"
                 : "font-medium text-secondary text-[16px] sm:text-[18px]",
         className,
+        fontSize ? fontSize : "",
     ].join(" ");
 
     return variant === "link" ? (
