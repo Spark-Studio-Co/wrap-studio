@@ -1,0 +1,40 @@
+---
+import Button from "@/shared/ui/button/button.astro";
+import { Image } from "astro:assets";
+import { ChevronRight } from "lucide-react";
+
+import services06 from "/public/images/services06.webp";
+---
+
+<div
+    class="w-full h-[350px] flex flex-col border border-secondary-dark rounded-[12px] justify-between p-[32px] mt-5 relative overflow-hidden group hover:shadow-[0px_4px_128px_0px_#50C87840] transition-shadow duration-300 ease-in-out hover:border-primary"
+>
+    <span
+        class="absolute inset-0 flex justify-center items-center text-[256px] font-walk-da-walk font-[400] text-[#FFFFFF20] opacity-10 z-0"
+        style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
+    >
+        WRAP STUDIO
+    </span>
+    <span
+        class="uppercase text-white text-[48px] font-gotham font-[500] leading-[55px] w-[856px] group-hover:text-primary transition-colors duration-300 ease-in-out"
+        >Оклейка полиуретановой бронепленкой</span
+    >
+    <div class="flex flex-row items-center justify-between w-full">
+        <span
+            class="uppercase text-primary text-[18px] font-mont-alter font-[400] flex flex-row items-center gap-1 cursor-pointer relative z-10 hover:gap-3 transition-all duration-300 ease-in-out"
+            >подробнее <ChevronRight
+                className="w-[18px] h-[18px] text-primary"
+            /></span
+        >
+        <Button
+            variant="outline"
+            text={`заказать`.toUpperCase()}
+            width="2xl:w-[210px]"
+            height="2xl:h-[50px]"
+            className="relative z-10"
+        />
+        <div class="w-[732px] absolute -right-32 -bottom-4">
+            <Image src={services06} alt="Gelik" class="brightness-50" />
+        </div>
+    </div>
+</div>

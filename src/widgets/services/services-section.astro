@@ -5,6 +5,7 @@ import ServiceCard from "../../features/services/ui/service-card/service-card.as
 import { ServiceCard3d } from "../../features/services/ui/service-card/service-card";
 
 import { services } from "../../features/services/model/services";
+import BigServiceCard from "@/features/services/ui/big-service-card/big-service-card.astro";
 ---
 
 <section
@@ -17,7 +18,7 @@ import { services } from "../../features/services/model/services";
         <Paragraph
             text="Все, что нужно для защиты и безупречного вида вашего автомобиля."
             variant="main"
-            className="mt-8 mb-8 lg:mt-0 lg:mb-0 sm:w-[80%] md:w-[60%]"
+            className="mt-8 mb-8 lg:mt-0 lg:mb-0 sm:w-[80%] md:w-[60%] xl:w-[55%] 2xl:w-[50%] 3xl:w-[45%] 4xl:w-[40%]"
             align="lg:text-right text-center"
         />
     </div>
@@ -28,8 +29,8 @@ import { services } from "../../features/services/model/services";
             </div>
         ))
     }
-    <div class="lg:grid hidden gap-4 grid-rows-2 w-full mt-16">
-        <div class="grid grid-cols-3 gap-4">
+    <div class="lg:grid hidden grid-rows-2 w-full 3xl:hidden">
+        <div class="grid grid-cols-3 gap-x-4">
             {
                 services
                     .slice(0, 3)
@@ -52,5 +53,17 @@ import { services } from "../../features/services/model/services";
                     ))
             }
         </div>
+    </div>
+    <div class="hidden w-full 3xl:flex flex-col mt-[85px]">
+        <div class="flex justify-between w-full gap-x-4">
+            {
+                services
+                    .slice(0, 4)
+                    .map((service, index) => (
+                        <ServiceCard3d {...service} index={index} client:load />
+                    ))
+            }
+        </div>
+        <BigServiceCard />
     </div>
 </section>

@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+    background-color: #50C878; /* Change this to your desired background color */
+    color: white; /* Change this to your desired text color */
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

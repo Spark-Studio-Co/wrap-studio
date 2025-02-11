@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import React, {
   createContext,
   useState,
@@ -136,7 +136,7 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear", className)}
+      className={cn(" transition duration-200 ease-linear", className)}
       {...rest}
     >
       {children}

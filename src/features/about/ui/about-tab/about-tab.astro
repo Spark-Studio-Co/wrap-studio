@@ -1,5 +1,5 @@
 ---
-import StarIcon from "/public/images/star-icon.svg";
+import { StarIcon } from "lucide-react";
 
 interface Props {
     label: string;
@@ -9,7 +9,7 @@ const { label } = Astro.props;
 ---
 
 <div class="flex flex-row items-center gap-4">
-    <img src={StarIcon.src} alt="Star Icon" />
+    <StarIcon color="#50C878" size={48} strokeWidth={1.5} />
     <span
         class="font-mont-alter text-white font-[500] lg:text-[16px] xl:text-[20px] 2xl:text-[24px] lg:leading-[24px] xl:leading-[32px] 2xl:leading-[40px] italic"
     >

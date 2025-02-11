@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperInstance } from "swiper";
-import { CarSwiperButton } from "./car-swiper-button";
+import { SwiperButton } from "@/shared/ui/swiper-button/swiper-button";
+
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -74,11 +75,11 @@ export default function CarSwiper() {
 
             <div className="flex flex-col lg:flex-row-reverse lg:justify-between lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto ">
                 <div className="relative flex gap-x-8 justify-center mt-8">
-                    <CarSwiperButton
+                    <SwiperButton
                         onClick={() => swiperInstance?.slidePrev()}
                         variant="prev"
                     />
-                    <CarSwiperButton
+                    <SwiperButton
                         onClick={() => swiperInstance?.slideNext()}
                         variant="next"
                     />
