@@ -4,6 +4,8 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "../3d-card/3d-card";
 import Button from "@/shared/ui/button/button";
 
+import { usePopupStore } from "@/shared/model/open-popup-store";
+
 import { ChevronRight } from "lucide-react";
 
 interface IServiceCard {
@@ -12,9 +14,14 @@ interface IServiceCard {
     image: ImageMetadata;
     index: number;
     className?: string;
+    contentPopup?: string
 }
 
-export function ServiceCard3d({ title, description, image, index, className }: IServiceCard) {
+export function ServiceCard3d({ title, description, image, index, className, contentPopup }: IServiceCard) {
+    const { open } = usePopupStore("servicePopup");
+    let { open: openPopup } = usePopupStore("contentPopup");
+
+
     return (
         <CardContainer className="xl:inter-var w-full">
             <CardBody className={`group xl:group/card lg:min-h-[390px] xl:min-h-[440px] 2xl:min-h-[490px] 3xl:min-h-[460px] 4xl:min-h-[480px] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] relative w-full lg:p-[20px] flex items-start flex-col border border-secondary-dark rounded-[12px]  ${className}`}>
@@ -56,11 +63,11 @@ export function ServiceCard3d({ title, description, image, index, className }: I
                         translateX={-10}
                         as="button"
                         className="uppercase text-primary lg:text-[12px] xl:text-[14px] font-mont-alter font-[400] flex flex-row items-center gap-0.5 cursor-pointer relative z-10 hover:gap-2 transition-all duration-300 ease-in-out"
+                        onClick={() => openPopup(title, title, contentPopup)}
                     >
                         подробнее <ChevronRight
                             className="w-[14px] h-[14px] text-primary"
                         />
-
                     </CardItem>
                     <CardItem translateZ={10}
                         translateX={10}>
@@ -70,6 +77,7 @@ export function ServiceCard3d({ title, description, image, index, className }: I
                             width="w-[150px] sm:w-[180px] md:w-[200px] lg:w-[110px] xl:w-[150px]"
                             height="h-[40px] sm:h-[45px] md:h-[50px] lg:h-[30px] xl:h-[40px]"
                             className="lg:text-[12px] xl:text-[14px] relative z-10 lg:justify-self-end"
+                            onClick={() => open(title)}
                         />
                     </CardItem>
                 </div>

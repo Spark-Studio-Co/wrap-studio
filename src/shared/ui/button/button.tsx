@@ -1,4 +1,7 @@
 import React from "react";
+import { usePopupStore } from "@/shared/model/open-popup-store";
+
+
 
 interface Props {
     text: string;
@@ -8,20 +11,21 @@ interface Props {
     width?: string;
     height?: string;
     onClick?: () => void;
-    type?: string;
+    type?: "button" | "submit" | "reset";
     fontSize?: string;
 }
 
 const Button: React.FC<Props> = ({
     text,
-    href,
     className = "",
     variant = "default",
     width = "w-[210px] sm:w-[240px] lg:w-[190px] xl:w-[220px]",
     height = "h-[50px] sm:h-[55px] lg:h-[45px] xl:h-[55px]",
     onClick,
+    type = "button",
     fontSize,
 }) => {
+    const { open } = usePopupStore("formPopup");
     const classes = [
         width,
         height,
@@ -35,12 +39,8 @@ const Button: React.FC<Props> = ({
         fontSize ? fontSize : "",
     ].join(" ");
 
-    return variant === "link" ? (
-        <a href={href} className={`${width} ${height} ${className} bg-primary hover:bg-transparent hover:text-primary transition-colors duration-300 hover:border-primary hover:border font-medium text-white ${fontSize ? fontSize : "text-[16px] sm:text-[18px] lg:text-[14px] xl:text-[16px]"}  font-mont-alter flex items-center justify-center rounded-[32px]`}>
-            {text}
-        </a>
-    ) : (
-        <button className={classes} onClick={onClick}>
+    return (
+        <button className={classes} onClick={onClick ? onClick : () => open()} type={type}>
             {text}
         </button>
     );

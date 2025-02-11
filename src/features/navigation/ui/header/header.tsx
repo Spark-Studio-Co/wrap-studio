@@ -2,11 +2,14 @@ import { BurgerButton } from "./burger-button";
 import { useEffect } from "react";
 import Button from '../../../../shared/ui/button/button'
 
+import { usePopupStore } from "@/shared/model/open-popup-store";
 
 import { links } from "../../model/links";
 import logo from '/public/images/logo.svg'
 
 export const Header = () => {
+
+    const { open } = usePopupStore('formPopup');
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
@@ -48,6 +51,7 @@ export const Header = () => {
                     width="lg:w-[180px] xl:w-[220px]"
                     height="lg:h-[45px] xl:h-[55px]"
                     fontSize="lg:text-[13px] xl:text-[16px]"
+                    onClick={open}
                 />
             </nav>
         </header>

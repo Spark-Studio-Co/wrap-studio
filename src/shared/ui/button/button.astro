@@ -6,7 +6,6 @@ interface Props {
     variant?: "default" | "outline" | "link";
     width?: string;
     height?: string;
-    onClick?: () => void;
     fontSize?: string;
 }
 
@@ -17,7 +16,6 @@ const {
     variant = "default",
     width = "w-[210px] sm:w-[240px]",
     height = "h-[50px] sm:h-[55px]",
-    onClick,
     fontSize = "text-[16px] sm:text-[18px]",
 } = Astro.props;
 ---

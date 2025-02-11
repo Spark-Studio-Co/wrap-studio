@@ -31,7 +31,7 @@ export const mockData = [
         ],
     },
     {
-        title: "LUX-ПАКЕТ",
+        title: "Lux-пакет",
         price: '1.200.000',
         descriptors: [
             "Передний бампер",

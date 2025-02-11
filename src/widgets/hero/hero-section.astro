@@ -1,10 +1,9 @@
 ---
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import Button from "../../shared/ui/button/button.astro";
+import Button from "@/shared/ui/button/button";
 import { Image } from "astro:assets";
 
 import BackgroundVideo from "/public/videos/video.mp4";
-
 import WrapIcon from "/public/images/wrap.svg";
 import StudioIcon from "/public/images/studio.svg";
 import LogoIcon from "/public/images/logo-icon-pc.svg";
@@ -93,9 +92,9 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
             </div>
             <Button
                 text={"Связаться с нами".toUpperCase()}
-                variant="link"
-                href="#contacts"
+                variant="default"
                 className="mt-[64px] lg:hidden flex"
+                client:load
             />
         </div>
     </section>

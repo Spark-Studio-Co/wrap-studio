@@ -1,7 +1,7 @@
 ---
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import PriceCard from "../../features/price/ui/price-card/price-card.astro";
+import { PriceCard } from "../../features/price/ui/price-card/price-card";
 import { mockData } from "../../features/price/lib/mock-data";
 ---
 
@@ -28,7 +28,7 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData.map((card) => (
                     <div class="flex flex-col items-center mb-8 last:mb-0 w-full">
-                        <PriceCard {...card} />
+                        <PriceCard {...card} client:load />
                     </div>
                 ))
             }
@@ -40,14 +40,14 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData.slice(0, 2).map((card) => (
                     <div class="flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} />
+                        <PriceCard {...card} client:load />
                     </div>
                 ))
             }
             {
                 mockData.slice(2, 4).map((card) => (
                     <div class="flex mt-4 flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} />
+                        <PriceCard {...card} client:load />
                     </div>
                 ))
             }
@@ -59,7 +59,7 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData.slice(0, 3).map((card) => (
                     <div class="flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} />
+                        <PriceCard {...card} client:load />
                     </div>
                 ))
             }
@@ -69,7 +69,9 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData
                     .slice(3, 4)
-                    .map((card) => <PriceCard {...card} isExtended />)
+                    .map((card) => (
+                        <PriceCard {...card} isExtended client:load />
+                    ))
             }
         </div>
     </div>

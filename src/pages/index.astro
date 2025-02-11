@@ -4,6 +4,9 @@ import Layout from "../layouts/Layout.astro";
 import CarSwiper from "../features/about/ui/car-swiper/car-swiper";
 import Menu from "../features/navigation/ui/menu/menu";
 import { Header } from "../features/navigation/ui/header/header";
+import { FormPopup } from "@/features/contacts/ui/form-popup/form-popup";
+import { ServiceFormPopup } from "@/features/services/ui/service-form-popup/service-form-popup";
+import { ContentPopup } from "@/shared/ui/content-popup/content-popup";
 
 //sections
 import HeroSection from "../widgets/hero/hero-section.astro";
@@ -28,4 +31,7 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 		</div>
 	</div>
 	<Menu client:load />
+	<FormPopup client:load />
+	<ServiceFormPopup client:load />
+	<ContentPopup client:load />
 </Layout>

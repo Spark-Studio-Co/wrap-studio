@@ -1,8 +1,8 @@
 ---
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import ServiceCard from "../../features/services/ui/service-card/service-card.astro";
 import { ServiceCard3d } from "../../features/services/ui/service-card/service-card";
+import { ServiceCardMob } from "@/features/services/ui/service-card/service-card-mob.tsx";
 
 import { services } from "../../features/services/model/services";
 import BigServiceCard from "@/features/services/ui/big-service-card/big-service-card.astro";
@@ -26,7 +26,7 @@ import BigServiceCard from "@/features/services/ui/big-service-card/big-service-
     {
         services.map((service, index) => (
             <div class="flex flex-col items-center mb-8 last:mb-0 w-full lg:hidden">
-                <ServiceCard {...service} index={index} />
+                <ServiceCardMob {...service} index={index} client:load />
             </div>
         ))
     }
