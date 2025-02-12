@@ -86,11 +86,10 @@ export const Form = ({
   return (
     <form
       ref={formRef}
-      className={`flex flex-col w-full gap-4 mt-8 items-center ${
-        isFull
-          ? "w-full items-center"
-          : "lg:items-start lg:max-w-[55%] 3xl:max-w-[45%] relative"
-      }`}
+      className={`flex flex-col w-full gap-4 mt-8 items-center ${isFull
+        ? "w-full items-center"
+        : "lg:items-start lg:max-w-[55%] 3xl:max-w-[45%] relative"
+        }`}
     >
       {formFields.map(({ placeholder, type, name, value, onChange }, index) => (
         <Input
@@ -101,7 +100,6 @@ export const Form = ({
           value={value}
           onChange={onChange}
           isPopup={isFull}
-          className="form-item opacity-0"
         />
       ))}
       <SelectInput
@@ -117,11 +115,9 @@ export const Form = ({
           "Standart-пакет",
           "Lux-пакет",
         ]}
-        name="booking"
         value={booking}
         onChange={setBooking}
         isPopup={isFull}
-        className="form-item opacity-0"
       />
       <Button
         text="Отправить"

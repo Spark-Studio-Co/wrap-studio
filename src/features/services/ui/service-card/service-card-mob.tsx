@@ -14,7 +14,7 @@ interface IServiceCard {
     contentPopup?: string;
 }
 
-export const ServiceCardMob: React.FC<IServiceCard> = ({ title, description, image, index, className, contentPopup }) => {
+export const ServiceCardMob: React.FC<IServiceCard> = ({ title, description, index, className, contentPopup }) => {
     const { open } = usePopupStore('servicePopup');
     const { open: openPopup } = usePopupStore("contentPopup");
 

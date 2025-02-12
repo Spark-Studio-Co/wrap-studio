@@ -1,6 +1,5 @@
 "use client";
 
-import React, { lazy } from "react";
 import { CardBody, CardContainer, CardItem } from "../3d-card/3d-card";
 import Button from "@/shared/ui/button/button";
 

@@ -9,8 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.0",
-    "astro": "^5.2.5",
+    "astro": "^5.2.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.2",

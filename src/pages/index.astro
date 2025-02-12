@@ -19,19 +19,19 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 
 <Layout>
 	<div class="relative w-full overflow-x-hidden">
-		<Header client:only="react" />
+		<Header client:idle />
 		<HeroSection />
 		<div class="bg-[#080808]">
 			<ServicesSection />
 			<AboutSection />
-			<CarSwiper client:visible />
+			<CarSwiper client:idle />
 			<PriceSection />
 			<PortfolioSection />
 			<ContactsSection />
 		</div>
 	</div>
-	<Menu client:only="react" />
-	<FormPopup client:only="react" />
-	<ServiceFormPopup client:only="react" />
-	<ContentPopup client:only="react" />
+	<Menu client:idle />
+	<FormPopup client:idle />
+	<ServiceFormPopup client:idle />
+	<ContentPopup client:idle />
 </Layout>

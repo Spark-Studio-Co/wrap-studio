@@ -55,6 +55,7 @@ export const ContentPopup = () => {
                     onClick={handleClick}
                 >
                     <motion.div
+                        role="dialog" aria-labelledby="modal-title" aria-describedby="modal-content"
                         ref={popupRef}
                         className="bg-[#080808] relative p-6 max-w-md flex flex-col items-center text-center border border-secondary-dark rounded-[12px] w-full"
                         variants={contentVariants}

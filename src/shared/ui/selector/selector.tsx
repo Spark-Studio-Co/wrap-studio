@@ -4,14 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface SelectInputProps {
     options: string[];
-    name: string;
     value: string[];
     onChange: (value: string[]) => void;
     isPopup?: boolean;
-    className?: string;
 }
 
-export const SelectInput = ({ options, name, value, onChange, isPopup = false, className = '' }: SelectInputProps) => {
+export const SelectInput = ({ options, value, onChange, isPopup = false }: SelectInputProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOption = (option: string) => {
