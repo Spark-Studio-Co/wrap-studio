@@ -45,7 +45,7 @@ export const SelectInput = ({ options, value, onChange, isPopup = false }: Selec
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute z-50 left-0 top-full w-full mt-1 bg-black border border-secondary-dark overflow-hidden max-h-32 sm:max-h-40 lg:max-h-36 overflow-y-auto"
+                        className="absolute z-50 left-0 top-full w-full mt-1 bg-black border border-secondary-dark overflow-hidden max-h-32 sm:max-h-40 lg:max-h-36 overflow-y-auto custom-scrollbar"
                     >
                         {options.map((option) => (
                             <li
@@ -60,6 +60,18 @@ export const SelectInput = ({ options, value, onChange, isPopup = false }: Selec
                     </motion.ul>
                 )}
             </AnimatePresence>
+            <style>{`
+                .custom-scrollbar::-webkit-scrollbar {
+                    width: 8px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background-color: #50C878; /* Custom green scrollbar */
+                    border-radius: 4px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: #080808;
+                }
+            `}</style>
         </div>
     );
 };

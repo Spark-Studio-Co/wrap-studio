@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { usePopupStore } from "@/shared/model/open-popup-store";
-
-
 
 interface Props {
     text: string;
@@ -26,21 +24,30 @@ const Button: React.FC<Props> = ({
     fontSize,
 }) => {
     const { open } = usePopupStore("formPopup");
-    const classes = [
-        width,
-        height,
-        "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300",
-        variant === "default"
-            ? "bg-primary font-medium text-white text-[16px] sm:text-[18px] hover:bg-transparent hover:border hover:border-primary "
-            : variant === "outline"
-                ? "bg-transparent border border-primary font-medium text-primary text-[16px] sm:text-[18px] hover:bg-primary hover:text-white"
-                : "font-medium text-secondary text-[16px] sm:text-[18px]",
-        className,
-        fontSize ? fontSize : "",
-    ].join(" ");
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true); // Ensure hydration happens only in client
+    }, []);
 
     return (
-        <button className={classes} onClick={onClick ? onClick : () => open()} type={type}>
+        <button
+            className={[
+                width,
+                height,
+                "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300",
+                variant === "default"
+                    ? "bg-primary font-medium text-white text-[16px] sm:text-[18px] hover:bg-transparent hover:border hover:border-primary"
+                    : variant === "outline"
+                        ? "bg-transparent border border-primary font-medium text-primary text-[16px] sm:text-[18px] hover:bg-primary hover:text-white"
+                        : "font-medium text-secondary text-[16px] sm:text-[18px]",
+                className,
+                fontSize ? fontSize : "",
+                isClient ? "" : "opacity-100 scale-100", // Fix hydration mismatch
+            ].join(" ")}
+            onClick={onClick ? onClick : () => open()}
+            type={type}
+        >
             {text}
         </button>
     );

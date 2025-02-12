@@ -1,9 +1,9 @@
-"use client";
-
 import React from "react";
 import { usePopupStore } from "@/shared/model/open-popup-store";
 import Button from "@/shared/ui/button/button";
+
 import { ChevronRight } from "lucide-react";
+import '/src/styles/fonts.css';
 
 interface IServiceCard {
     title: string;
@@ -14,25 +14,32 @@ interface IServiceCard {
     contentPopup?: string;
 }
 
-export const ServiceCardMob: React.FC<IServiceCard> = ({ title, description, index, className, contentPopup }) => {
+export const ServiceCardMob: React.FC<IServiceCard> = ({ title, description, image, index, className, contentPopup }) => {
     const { open } = usePopupStore('servicePopup');
     const { open: openPopup } = usePopupStore("contentPopup");
 
 
     return (
         <div className={`relative w-full min-h-[380px] p-[20px] sm:p-[24px] md:p-[28px] flex items-start flex-col border border-secondary-dark rounded-[12px] overflow-hidden ${className}`}>
-            <span className="absolute inset-0 flex justify-center items-center text-[300px] lg:text-[280px] font-walk-da-walk font-[400] text-secondary opacity-10 z-0">
+            <span className="absolute inset-0 flex justify-center items-center text-[300px] lg:text-[280px] font-walk-da-walk font-[400] text-secondary opacity-10 z-0"
+                style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
+            >
                 {index < 9 ? `0${index + 1}` : index + 1}
             </span>
 
-            <span className="text-white font-gotham font-[400] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[22px] xl:text-[28px] 2xl:text-[32px] leading-6 relative z-10">
+            <span className="text-white font-gotham font-[400] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[22px] xl:text-[28px] 2xl:text-[32px] leading-6 relative z-10"
+            >
                 {title.toUpperCase()}
             </span>
 
             <p className="text-secondary text-left font-mont-alter font-[400] text-[12px] sm:text-[16px] md:text-[18px] lg:text-[12px] xl:text-[16px] 2xl:text-[18px] leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[22px] xl:leading-[26px] 2xl:leading-[30px] mt-3 max-w-[282px] sm:max-w-[382px] md:max-w-[482px] lg:w-full xl:max-w-[382px] relative z-10">
                 {description}
             </p>
-
+            <div
+                className="relative w-full h-auto bg-cover bg-center rounded-[12px] mt-3"
+                style={{ backgroundImage: `url(${image.src})`, paddingBottom: "56.25%" }}
+            >
+            </div>
             <div className="lg:flex-grow"></div>
             <div className="flex flex-row items-center justify-between w-full mx-auto mt-5">
                 <span
