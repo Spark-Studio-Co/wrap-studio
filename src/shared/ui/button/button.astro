@@ -1,54 +1,54 @@
 ---
 interface Props {
-    text: string;
-    href?: string;
-    className?: string;
-    variant?: "default" | "outline" | "link";
-    width?: string;
-    height?: string;
-    fontSize?: string;
+  text: string;
+  href?: string;
+  className?: string;
+  variant?: "default" | "outline" | "link";
+  width?: string;
+  height?: string;
+  fontSize?: string;
 }
 
 const {
-    text,
-    href,
-    className = "",
-    variant = "default",
-    width = "w-[210px] sm:w-[240px]",
-    height = "h-[50px] sm:h-[55px]",
-    fontSize = "text-[16px] sm:text-[18px]",
+  text,
+  href,
+  className = "",
+  variant = "default",
+  width = "w-[210px] sm:w-[240px]",
+  height = "h-[50px] sm:h-[55px]",
+  fontSize = "text-[16px] sm:text-[18px]",
 } = Astro.props;
 ---
 
 {
-    variant === "link" ? (
-        <a
-            href={href}
-            class:list={[
-                width,
-                height,
-                "font-mont-alter flex items-center justify-center rounded-[32px] bg-primary font-medium text-white text-[16px] sm:text-[18px]",
-                className,
-            ]}
-        >
-            {text}
-        </a>
-    ) : (
-        <button
-            class:list={[
-                width,
-                height,
-                "font-mont-alter flex items-center justify-center rounded-[32px] transition-colors duration-300 ease-in-out",
-                variant === "default"
-                    ? "bg-primary font-medium text-white hover:bg-transparent hover:border hover:border-primary"
-                    : variant === "outline"
-                      ? "bg-transparent border border-primary font-medium text-primary  hover:bg-primary hover:text-white"
-                      : "font-medium text-secondary ",
-                className,
-                fontSize,
-            ]}
-        >
-            {text}
-        </button>
-    )
+  variant === "link" ? (
+    <a
+      href={href}
+      class:list={[
+        width,
+        height,
+        "font-mont-alter flex items-center justify-center rounded-[32px] bg-primary font-medium text-white text-[16px] sm:text-[18px]",
+        className,
+      ]}
+    >
+      {text}
+    </a>
+  ) : (
+    <button
+      class:list={[
+        width,
+        height,
+        "font-mont-alter flex items-center justify-center rounded-[32px] transition-colors duration-300 ease-in-out",
+        variant === "default"
+          ? "bg-primary font-medium text-white hover:bg-transparent hover:border hover:border-primary"
+          : variant === "outline"
+            ? "bg-transparent border border-primary font-medium text-primary  hover:bg-primary hover:text-white"
+            : "font-medium text-secondary ",
+        className,
+        fontSize,
+      ]}
+    >
+      {text}
+    </button>
+  )
 }

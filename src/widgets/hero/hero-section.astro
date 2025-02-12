@@ -3,150 +3,149 @@ import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "@/shared/ui/button/button.astro";
 import { Image } from "astro:assets";
 
-import BackgroundVideo from "/public/videos/video.mp4";
+import BackgroundVideo from "/public/videos/video.webm";
 import WrapIcon from "/public/images/wrap.svg";
 import StudioIcon from "/public/images/studio.svg";
 import LogoIcon from "/public/images/logo-icon-pc.svg";
 ---
 
 <style>
-    .video-section {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        overflow: hidden;
-    }
+  .video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
 
-    .video-section video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 102%;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-    }
+  .video-section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 102%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 0;
-    }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 0;
+  }
 
-    .content {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        opacity: 0; /* Скрываем контент, пока не запустится анимация */
-    }
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    opacity: 0; /* Скрываем контент, пока не запустится анимация */
+  }
 </style>
 
 <main class="relative w-full">
-    <section class="video-section">
-        <video autoplay loop muted playsinline>
-            <source src={BackgroundVideo} type="video/mp4" />
-            Ваш браузер не поддерживает видео.
-        </video>
+  <section class="video-section">
+    <video autoplay loop muted playsinline>
+      <source src={BackgroundVideo} type="video/webm" />
+      Ваш браузер не поддерживает видео.
+    </video>
 
-        <div class="overlay"></div>
+    <div class="overlay"></div>
 
-        <div
-            id="heroContent"
-            class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
+    <div
+      id="heroContent"
+      class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
+    >
+      <div class="lg:flex-grow 4xl:flex-none"></div>
+      <div
+        class="flex items-center 4xl:justify-center w-full 4xl:h-full flex-col"
+      >
+        <h1
+          class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-y-8"
         >
-            <div class="lg:flex-grow 4xl:flex-none"></div>
-            <div
-                class="flex items-center 4xl:justify-center w-full 4xl:h-full flex-col"
-            >
-                <h1
-                    class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-y-8"
-                >
-                    <Image
-                        src={WrapIcon}
-                        alt="Wrap"
-                        class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
-                        loading="eager"
-                    />
-                    <Image
-                        src={StudioIcon}
-                        alt="Studio"
-                        class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
-                        loading="eager"
-                    />
-                    <Image
-                        src={LogoIcon}
-                        alt="Logo Icon"
-                        class="hidden lg:flex"
-                        loading="eager"
-                    />
-                </h1>
-                <Paragraph
-                    variant="hero"
-                    text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
-                    className="mt-4 sm:mt-8 sm:w-[80%] md:w-[60%] lg:w-[75%] xl:w-[60%] 3xl:w-[45%] lg:mb-28 xl:mb-36 2xl:mb-48"
-                />
-            </div>
-            <Button
-                text={"Связаться с нами".toUpperCase()}
-                variant="default"
-                className="mt-[64px] lg:hidden flex"
-                client:load
-            />
-        </div>
-    </section>
+          <Image
+            src={WrapIcon}
+            alt="Wrap"
+            class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
+            loading="eager"
+          />
+          <Image
+            src={StudioIcon}
+            alt="Studio"
+            class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
+            loading="eager"
+          />
+          <Image
+            src={LogoIcon}
+            alt="Logo Icon"
+            class="hidden lg:flex"
+            loading="eager"
+          />
+        </h1>
+        <Paragraph
+          variant="hero"
+          text="Wrap Studio: защита вашего авто на годы. Полиуретановая пленка — броня от царапин, сколов и времени. Сохраняем идеальный вид, подчеркиваем стиль. Ваш автомобиль в надежных руках."
+          className="mt-4 sm:mt-8 sm:w-[80%] md:w-[60%] lg:w-[75%] xl:w-[60%] 3xl:w-[45%] lg:mb-28 xl:mb-36 2xl:mb-48"
+        />
+      </div>
+      <Button
+        text={"Связаться с нами".toUpperCase()}
+        variant="default"
+        className="mt-[64px] lg:hidden flex"
+      />
+    </div>
+  </section>
 </main>
 
 <!-- GSAP Анимация -->
 <script>
-    import { gsap } from "gsap";
+  import { gsap } from "gsap";
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const tl = gsap.timeline();
+  document.addEventListener("DOMContentLoaded", () => {
+    const tl = gsap.timeline();
 
-        tl.to("#heroContent", {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            ease: "power3.out",
-        });
-
-        tl.from(
-            "#heroContent h1",
-            {
-                opacity: 0,
-                y: 50,
-                duration: 1.2,
-                ease: "power3.out",
-            },
-            "-=1",
-        );
-
-        tl.from(
-            "#heroContent p",
-            {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                ease: "power3.out",
-            },
-            "-=0.8",
-        );
-
-        tl.from(
-            "#heroContent button",
-            {
-                opacity: 0,
-                scale: 0.9,
-                duration: 1,
-                ease: "power3.out",
-            },
-            "-=0.8",
-        );
+    tl.to("#heroContent", {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: "power3.out",
     });
+
+    tl.from(
+      "#heroContent h1",
+      {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: "power3.out",
+      },
+      "-=1"
+    );
+
+    tl.from(
+      "#heroContent p",
+      {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8"
+    );
+
+    tl.from(
+      "#heroContent button",
+      {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8"
+    );
+  });
 </script>
