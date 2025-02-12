@@ -1,0 +1,93 @@
+---
+import Heading from "../../shared/ui/heading/heading.astro";
+import PortfolioCard from "../../features/portfolio/ui/portfolio-card/portfolio-card.tsx";
+
+import { portfolioCards } from "../../features/portfolio/lib/mock-data";
+---
+
+<section
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] flex items-center flex-col mx-auto mt-[128px] lg:mt-[160px] mb-20"
+    id="portfolio"
+>
+    <div
+        id="portfolioHeadingWrapper"
+        class="lg:flex items-start w-full flex flex-col"
+    >
+        <div
+            id="portfolioHeading"
+            class="opacity-0 translate-y-10 lg:translate-y-0 lg:translate-x-[50px]"
+        >
+            <Heading level={1} text="// Наши работы" />
+        </div>
+    </div>
+
+    <div
+        id="portfolioCards"
+        class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-8 items-center mt-8 mb-12 last:mb-0 w-full"
+    >
+        {
+            portfolioCards.map((card, index) => (
+                <div
+                    class={`portfolio-card opacity-0 translate-y-10 
+                    ${
+                        portfolioCards.length % 2 !== 0 &&
+                        index === portfolioCards.length - 1
+                            ? "lg:col-span-2"
+                            : ""
+                    }`}
+                >
+                    <PortfolioCard {...card} client:only="react" />
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.innerWidth < 1024; // lg breakpoint
+
+        // Анимация заголовка
+        gsap.fromTo(
+            "#portfolioHeading",
+            { opacity: 0, y: isMobile ? 0 : 0, x: isMobile ? 0 : 50 },
+            {
+                opacity: 1,
+                y: 0,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#portfolioHeadingWrapper",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+
+        // Анимация карточек портфолио
+        const portfolioCards =
+            gsap.utils.toArray<HTMLElement>(".portfolio-card");
+        gsap.fromTo(
+            portfolioCards,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#portfolioCards",
+                    start: "top 85%",
+                    toggleActions: "play none none none",
+                },
+            },
+        );
+    });
+</script>

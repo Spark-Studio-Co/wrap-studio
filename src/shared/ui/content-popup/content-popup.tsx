@@ -71,7 +71,7 @@ export const ContentPopup = () => {
                             </span>
                             <h2 className="text-white font-gotham font-[400] text-[28px] lg:text-[22px] xl:text-[28px] relative z-10"
                             >{contentTitlePopup}</h2>
-                            <p className="text-secondary text-left font-mont-alter font-[300] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] leading-[22px] 3xl:leading-[26px] lg:w-full xl:max-w-[382px] relative z-10"
+                            <p className="text-secondary text-left font-mont-alter font-[400] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] leading-[22px] 3xl:leading-[26px] lg:w-full xl:max-w-[382px] relative z-10"
                             >{contentTextPopup}</p>
                             <button
                                 onClick={close}

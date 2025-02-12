@@ -20,10 +20,19 @@ const Menu = () => {
         closeMenu();
         toggleBurgerMenu();
 
-        setTimeout(() => {
-            const element = document.querySelector(href as string);
+        if (!href) return;
+
+        const isOnMainPage = window.location.pathname === "/";
+
+        if (isOnMainPage) {
+            // If already on the main page, just scroll
+            const elementId = href.split("#")[1]; // Extract "services", "about", etc.
+            const element = document.getElementById(elementId);
             element?.scrollIntoView({ behavior: "smooth" });
-        }, 500);
+        } else {
+            // If not on the main page, navigate first
+            window.location.href = href;
+        }
     };
 
     useEffect(() => {
@@ -116,7 +125,7 @@ const Menu = () => {
                     Ул. нуркина 104/1
                 </a>
                 <a href="https://www.instagram.com/wrap_studio.pvl" target="_blank" className="mt-4">
-                    <img src={InstagramIcon.src} alt="Instagram Icon" />
+                    <img src={InstagramIcon.src} alt="Instagram Icon" loading="lazy" />
                 </a>
             </div>
         </div>

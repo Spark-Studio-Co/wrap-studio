@@ -37,7 +37,7 @@ import { mockData } from "../../features/price/lib/mock-data";
         {
             mockData.map((card) => (
                 <div class="price-card opacity-0 translate-y-10 flex flex-col items-center mb-8 last:mb-0 w-full">
-                    <PriceCard {...card} client:load />
+                    <PriceCard {...card} client:visible />
                 </div>
             ))
         }
@@ -51,14 +51,14 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData.slice(0, 2).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:load />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
             {
                 mockData.slice(2, 4).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex mt-4 flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:load />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
@@ -70,7 +70,7 @@ import { mockData } from "../../features/price/lib/mock-data";
             {
                 mockData.slice(0, 3).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:load />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
@@ -84,7 +84,7 @@ import { mockData } from "../../features/price/lib/mock-data";
                 mockData
                     .slice(3, 4)
                     .map((card) => (
-                        <PriceCard {...card} isExtended client:load />
+                        <PriceCard {...card} isExtended client:visible />
                     ))
             }
         </div>

@@ -1,22 +1,22 @@
 export const links = [
     {
         label: "Услуги",
-        href: "#services"
+        href: "/#services"
     },
     {
         label: "О НАС",
-        href: "#about"
+        href: "/#about"
     },
     {
         label: "Прайс-лист",
-        href: "#price"
+        href: "/#price"
     },
     {
         label: "Портфолио",
-        href: "#portfolio"
+        href: "/#portfolio"
     },
     {
-        label: "кОНТАКТЫ",
+        label: "КОНТАКТЫ",
         href: "#contacts"
     }
-]
+];

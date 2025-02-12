@@ -36,7 +36,7 @@ import { aboutTabs } from "../../features/about/model/about-tabs";
     <div class="hidden lg:flex flex-row items-center justify-between w-full">
         {
             countUps.map((countUp) => (
-                <CountUpComponent {...countUp} isRow client:only />
+                <CountUpComponent {...countUp} isRow client:only="react" />
             ))
         }
     </div>

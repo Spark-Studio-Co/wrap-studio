@@ -97,7 +97,7 @@ export const BigServiceCard = () => {
 
                 {/* Машина с анимацией въезда */}
                 <div ref={carRef} className="w-[732px] absolute -right-32 -bottom-4">
-                    <img src={services06.src} alt="Gelik" className="brightness-50" />
+                    <img src={services06.src} alt="Gelik" className="brightness-50" loading="lazy" />
                 </div>
             </div>
         </div>

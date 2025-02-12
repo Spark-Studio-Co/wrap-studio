@@ -10,7 +10,7 @@ interface ImageSliderProps {
 export default function ImageSlider({ images, title, description }: ImageSliderProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef<HTMLDivElement>(null);
-    const isLgScreen = typeof window !== "undefined" ? window.matchMedia("(min-width: 1024px)").matches : false;
+    const isLgScreen = typeof window !== "undefined" ? window.matchMedia("(min-width: 1280px)").matches : false;
 
     useEffect(() => {
         if (isLgScreen) return;
@@ -37,7 +37,7 @@ export default function ImageSlider({ images, title, description }: ImageSliderP
                     className="relative w-full h-auto bg-cover bg-center rounded-[12px] transition-all duration-1000 ease-in-out"
                     style={{ backgroundImage: `url(${images[currentIndex].src})`, paddingBottom: "56.25%" }}
                 />
-                <div className="hidden lg:flex absolute top-1/2 left-0 right-0 justify-between px-4 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                <div className="hidden xl:flex absolute top-1/2 left-0 right-0 justify-between px-4 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
                     <SwiperButton variant="prev" onClick={handlePrev} isFull />
                     <SwiperButton variant="next" onClick={handleNext} isFull />
                 </div>

@@ -33,8 +33,6 @@ export const ServiceCardMob: React.FC<IServiceCard> = ({ title, description, ima
                 {description}
             </p>
 
-            <div className="relative w-full h-auto bg-cover bg-center rounded-[12px] mt-4" style={{ backgroundImage: `url(${image.src})`, paddingBottom: "56.25%" }} />
-
             <div className="lg:flex-grow"></div>
             <div className="flex flex-row items-center justify-between w-full mx-auto mt-5">
                 <span

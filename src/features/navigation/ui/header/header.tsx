@@ -15,10 +15,19 @@ export const Header = () => {
         e.preventDefault();
         const href = e.currentTarget.getAttribute("href");
 
-        setTimeout(() => {
-            const element = document.querySelector(href as string);
+        if (!href) return;
+
+        const isOnMainPage = window.location.pathname === "/";
+
+        if (isOnMainPage) {
+            // If already on the main page, just scroll
+            const elementId = href.split("#")[1]; // Extract "services", "about", etc.
+            const element = document.getElementById(elementId);
             element?.scrollIntoView({ behavior: "smooth" });
-        }, 300);
+        } else {
+            // If not on the main page, navigate first
+            window.location.href = href;
+        }
     };
 
     useEffect(() => {
@@ -30,7 +39,8 @@ export const Header = () => {
 
     return (
         <header className="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] mx-auto flex justify-between items-center mt-8 lg:mt-12 absolute top-0 left-0 right-0 z-50 ">
-            <img src={logo.src} alt="Logo" className="w-[100px] sm:w-[120px] md:w-[140px]" loading="eager" />
+            <a href="/"><img src={logo.src} alt="Logo" className="w-[100px] sm:w-[120px] md:w-[140px]" loading="eager" />
+            </a>
             <div className="lg:hidden">
                 <BurgerButton />
             </div>

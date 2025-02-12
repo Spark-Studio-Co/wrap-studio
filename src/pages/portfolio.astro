@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Menu from "../features/navigation/ui/menu/menu";
+import { Header } from "../features/navigation/ui/header/header";
+import { FormPopup } from "@/features/contacts/ui/form-popup/form-popup";
+
+//sections
+import PortfolioInner from "@/widgets/portfolio-inner/portfolio-inner.astro";
+import ContactsSection from "@/widgets/contacts/contacts-section.astro";
+---
+
+<Layout>
+    <div class="relative w-full overflow-x-hidden bg-[#080808]">
+        <Header client:only="react" />
+        <PortfolioInner />
+        <ContactsSection />
+    </div>
+    <Menu client:only="react" />
+    <FormPopup client:only="react" />
+</Layout>
