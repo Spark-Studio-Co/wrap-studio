@@ -22,7 +22,7 @@ export default function CarSwiper() {
     }, [animating]);
 
     return (
-        <div className="relative w-full lg:mt-[64px] 4xl:max-w-[1800px] mx-auto">
+        <div className="relative w-full lg:mt-[64px] 4xl:max-w-[1540px] mx-auto">
             <Swiper
                 onSwiper={setSwiperInstance}
                 spaceBetween={10}

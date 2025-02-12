@@ -6,7 +6,7 @@ import { mockData } from "../../features/price/lib/mock-data";
 ---
 
 <section
-    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] flex items-center flex-col mx-auto mt-[64px] lg:mt-0 leading-none"
+    class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] flex items-center flex-col mx-auto mt-[64px] lg:mt-0 leading-none"
     id="price"
 >
     <!-- Фоновый текст -->
@@ -153,43 +153,38 @@ import { mockData } from "../../features/price/lib/mock-data";
         );
 
         // Анимация карточек для десктопа
-        const priceCardsDesktop = gsap.utils.toArray<HTMLElement>(
-            "#priceCardsDesktop .price-card",
-        );
         gsap.fromTo(
-            priceCardsDesktop,
+            "#priceCardsDesktop",
             { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 1.2,
+                duration: 1,
                 ease: "power3.out",
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: "#priceCardsDesktop",
-                    start: "top 85%",
+                    start: "top 100%",
                     toggleActions: "play none none none",
+                    once: true,
                 },
             },
         );
 
-        // Анимация карточек для XL-дисплеев
-        const priceCardsXL = gsap.utils.toArray<HTMLElement>(
-            "#priceCardsXL .price-card",
-        );
         gsap.fromTo(
-            priceCardsXL,
+            "#priceCardsXL",
             { opacity: 0, y: 20 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 1.2,
+                duration: 1,
                 ease: "power3.out",
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: "#priceCardsXL",
-                    start: "top 85%",
+                    start: "top 100%",
                     toggleActions: "play none none none",
+                    once: true,
                 },
             },
         );

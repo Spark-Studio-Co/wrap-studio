@@ -1,12 +1,13 @@
 ---
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
-import Button from "@/shared/ui/button/button.astro";
+import Button from "@/shared/ui/button/button";
 import { Image } from "astro:assets";
 
 import BackgroundVideo from "/public/videos/video.webm";
-import WrapIcon from "/public/images/wrap.svg";
-import StudioIcon from "/public/images/studio.svg";
+import LogoMob from "/public/images/logo-mob.svg";
 import LogoIcon from "/public/images/logo-icon-pc.svg";
+
+import { HeroAnimation } from "@/features/hero/lib/animations/hero-animation";
 ---
 
 <style>
@@ -58,7 +59,7 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
 
     <div
       id="heroContent"
-      class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1800px] mx-auto flex flex-col items-center"
+      class="content max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] mx-auto flex flex-col items-center"
     >
       <div class="lg:flex-grow 4xl:flex-none"></div>
       <div
@@ -68,13 +69,7 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
           class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-y-8"
         >
           <Image
-            src={WrapIcon}
-            alt="Wrap"
-            class="w-[240px] sm:w-[300px] md:w-[340px] lg:hidden flex"
-            loading="eager"
-          />
-          <Image
-            src={StudioIcon}
+            src={LogoMob}
             alt="Studio"
             class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
             loading="eager"
@@ -96,56 +91,10 @@ import LogoIcon from "/public/images/logo-icon-pc.svg";
         text={"Связаться с нами".toUpperCase()}
         variant="default"
         className="mt-[64px] lg:hidden flex"
+        client:load
       />
     </div>
   </section>
 </main>
 
-<!-- GSAP Анимация -->
-<script>
-  import { gsap } from "gsap";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const tl = gsap.timeline();
-
-    tl.to("#heroContent", {
-      opacity: 1,
-      y: 0,
-      duration: 1.5,
-      ease: "power3.out",
-    });
-
-    tl.from(
-      "#heroContent h1",
-      {
-        opacity: 0,
-        y: 50,
-        duration: 1.2,
-        ease: "power3.out",
-      },
-      "-=1"
-    );
-
-    tl.from(
-      "#heroContent p",
-      {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        ease: "power3.out",
-      },
-      "-=0.8"
-    );
-
-    tl.from(
-      "#heroContent button",
-      {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        ease: "power3.out",
-      },
-      "-=0.8"
-    );
-  });
-</script>
+<HeroAnimation client:load />

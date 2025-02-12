@@ -64,7 +64,7 @@ export const ServiceFormPopup = () => {
                         exit="exit"
                     >
                         <span
-                            className="absolute inset-0 flex justify-center items-center text-[128px] font-walk-da-walk font-[400] text-secondary opacity-10 -z-0"
+                            className="absolute inset-0 flex justify-center items-center text-[128px] font-walk-da-walk font-[400] text-secondary opacity-5 -z-0"
                             style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
                         >
                             WRAP STUDIO

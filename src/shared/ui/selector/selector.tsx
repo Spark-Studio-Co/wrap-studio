@@ -29,7 +29,9 @@ export const SelectInput = ({ options, name, value, onChange, isPopup = false, c
                 className={`w-full bg-transparent border border-secondary-dark py-3.5 px-4 text-white font-mont-alter font-[400] focus:outline-none flex justify-between items-center ${isPopup ? "text-[12px] sm:text-[13px] md:text-[14px]" : "text-[14px] sm:text-[16px] md:text-[18px]"}`}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {value.length > 0 ? value.join(", ") : "Что вы хотите забронировать?"}
+                <span className="truncate self-start overflow-hidden whitespace-nowrap">
+                    {value.length > 0 ? value.join(", ") : "Что вы хотите забронировать?"}
+                </span>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
