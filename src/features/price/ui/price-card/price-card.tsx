@@ -52,10 +52,9 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
             <div className={`flex ${isExtended ? "flex-col items-end justify-between" : "flex-row flex-wrap justify-between w-full mt-auto gap-3 xl:gap-4 items-center"} z-20`}>
                 <span
-                    className={`text-primary font-[400] text-[50px] sm:text-[64px] md:text-[72px] lg:text-[50px] ${isExtended ? "xl:text-[54px] 2xl:text-[64px]" : ""} 2xl:text-[72px]`}
-                    style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
+                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[30px] ${isExtended ? "xl:text-[34px] 2xl:text-[44px]" : ""} 2xl:text-[52px]`}
                 >
-                    {price}
+                    {price} тг
                 </span>
                 <div className={`${isExtended && "absolute bottom-[24px] 2xl:bottom-[28px]"}`}>
                     <Button
