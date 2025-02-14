@@ -6,7 +6,7 @@ import { usePopupStore } from "@/shared/model/open-popup-store";
 
 import TablerWheelIcon from "/public/images/tabler-wheel-icon.svg";
 
-interface PriceCardProps {
+export interface PriceCardProps {
     title: string;
     price: string;
     descriptors: string[];
@@ -31,15 +31,14 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
             <div>
                 <span
-                    className={`text-white font-gotham font-[500] group-hover:text-primary transition-colors duration-300 ease-in-out 
-                    ${isExtended ? "xl:text-[38px] 2xl:text-[48px]" : "text-[22px] sm:text-[28px] md:text-[32px] lg:text-[22px] xl:text-[24px] 2xl:text-[32px]"} leading-[37px] mb-4`}
+                    className={`text-white uppercase font-gotham font-[500] group-hover:text-primary transition-colors duration-300 ease-in-out 
+                    ${isExtended ? "xl:text-[38px] 2xl:text-[48px] uppercase" : "text-[22px] sm:text-[28px] md:text-[32px] lg:text-[22px] xl:text-[24px] 2xl:text-[32px]"} leading-[37px] mb-4`}
                 >
-                    {title.toUpperCase()}
+                    {title}
                 </span>
 
-                {/* Список преимуществ */}
                 <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-8 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>
-                    {descriptors.map((descriptor, index) => (
+                    {descriptors?.map((descriptor, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
                             <span className="text-white font-mont-alter font-[600] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[16px] 2xl:text-[20px] leading-[37px] -mt-2 whitespace-pre-line">
@@ -52,7 +51,7 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
             <div className={`flex ${isExtended ? "flex-col items-end justify-between" : "flex-row flex-wrap justify-between w-full mt-auto gap-3 xl:gap-4 items-center"} z-20`}>
                 <span
-                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[30px] ${isExtended ? "xl:text-[34px] 2xl:text-[44px]" : ""} 2xl:text-[52px]`}
+                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[30px] xl:text-[34px]  ${isExtended ? "xl:text-[44px] 2xl:text-[52px]" : ""} `}
                 >
                     {price} тг
                 </span>

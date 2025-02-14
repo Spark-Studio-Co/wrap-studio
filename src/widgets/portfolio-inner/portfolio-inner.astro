@@ -2,7 +2,21 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import PortfolioCard from "../../features/portfolio/ui/portfolio-card/portfolio-card.tsx";
 
-import { portfolioCards } from "../../features/portfolio/lib/mock-data";
+import type { ImageSliderProps } from "../../features/portfolio/ui/portfolio-card/portfolio-card";
+
+const response = await fetch(
+    "http://localhost:1337/api/portfolio-packages?populate=*",
+);
+const json = await response.json();
+const data = json.data;
+
+const formattedData = data.map((card: any) => ({
+    ...card,
+    images:
+        card.images?.map((img: any) =>
+            img.url ? `http://localhost:1337${img.url}` : null,
+        ) || [],
+}));
 ---
 
 <section
@@ -26,17 +40,21 @@ import { portfolioCards } from "../../features/portfolio/lib/mock-data";
         class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-8 items-center mt-8 mb-12 last:mb-0 w-full"
     >
         {
-            portfolioCards.map((card, index) => (
+            data?.map((card: ImageSliderProps, index: number) => (
                 <div
                     class={`portfolio-card opacity-0 translate-y-10 
                     ${
-                        portfolioCards.length % 2 !== 0 &&
-                        index === portfolioCards.length - 1
+                        data.length % 2 !== 0 && index === data.length - 1
                             ? "lg:col-span-2"
                             : ""
                     }`}
                 >
-                    <PortfolioCard {...card} client:only="react" />
+                    <PortfolioCard
+                        images={formattedData[index]?.images || []}
+                        title={formattedData[index]?.title}
+                        description={formattedData[index]?.description}
+                        client:visible
+                    />
                 </div>
             ))
         }

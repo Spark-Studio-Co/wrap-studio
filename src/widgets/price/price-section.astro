@@ -2,7 +2,12 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import { PriceCard } from "../../features/price/ui/price-card/price-card";
+import type { PriceCardProps } from "../../features/price/ui/price-card/price-card";
 import { mockData } from "../../features/price/lib/mock-data";
+
+const response = await fetch("http://localhost:1337/api/service-packages");
+const json = await response.json();
+const data = json.data;
 ---
 
 <section
@@ -32,12 +37,20 @@ import { mockData } from "../../features/price/lib/mock-data";
         />
     </div>
 
-    <!-- Карточки прайс-листа -->
     <div id="priceCardsMob" class="flex flex-col items-center w-full lg:hidden">
         {
-            mockData.map((card) => (
+            data.map((card: PriceCardProps) => (
                 <div class="price-card opacity-0 translate-y-10 flex flex-col items-center mb-8 last:mb-0 w-full">
-                    <PriceCard {...card} client:visible />
+                    <PriceCard
+                        title={card.title}
+                        price={Number(card.price)
+                            .toLocaleString("en-US", {
+                                useGrouping: true,
+                            })
+                            .replace(/,/g, ".")}
+                        descriptors={card.descriptors}
+                        client:visible
+                    />
                 </div>
             ))
         }
@@ -49,16 +62,34 @@ import { mockData } from "../../features/price/lib/mock-data";
             class="hidden lg:grid lg:grid-cols-2 gap-x-4"
         >
             {
-                mockData.slice(0, 2).map((card) => (
+                data.slice(0, 2).map((card: PriceCardProps) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:visible />
+                        <PriceCard
+                            title={card.title}
+                            price={Number(card.price)
+                                .toLocaleString("en-US", {
+                                    useGrouping: true,
+                                })
+                                .replace(/,/g, ".")}
+                            descriptors={card.descriptors}
+                            client:visible
+                        />
                     </div>
                 ))
             }
             {
-                mockData.slice(2, 4).map((card) => (
+                data.slice(2, 4).map((card: PriceCardProps) => (
                     <div class="price-card opacity-0 translate-y-10 flex mt-4 flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:visible />
+                        <PriceCard
+                            title={card.title}
+                            price={Number(card.price)
+                                .toLocaleString("en-US", {
+                                    useGrouping: true,
+                                })
+                                .replace(/,/g, ".")}
+                            descriptors={card.descriptors}
+                            client:visible
+                        />
                     </div>
                 ))
             }
@@ -68,9 +99,18 @@ import { mockData } from "../../features/price/lib/mock-data";
     <div class="hidden xl:block w-full">
         <div id="priceCardsXL" class="hidden xl:grid xl:grid-cols-3 gap-x-4">
             {
-                mockData.slice(0, 3).map((card) => (
+                data.slice(0, 3).map((card: PriceCardProps) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:visible />
+                        <PriceCard
+                            title={card.title}
+                            price={Number(card.price)
+                                .toLocaleString("en-US", {
+                                    useGrouping: true,
+                                })
+                                .replace(/,/g, ".")}
+                            descriptors={card.descriptors}
+                            client:visible
+                        />
                     </div>
                 ))
             }
@@ -81,17 +121,24 @@ import { mockData } from "../../features/price/lib/mock-data";
             class="hidden xl:flex xl:col-span-3 w-full mt-8 opacity-0 translate-y-10"
         >
             {
-                mockData
-                    .slice(3, 4)
-                    .map((card) => (
-                        <PriceCard {...card} isExtended client:visible />
-                    ))
+                data.slice(3, 4).map((card: PriceCardProps) => (
+                    <PriceCard
+                        title={card.title}
+                        price={Number(card.price)
+                            .toLocaleString("en-US", {
+                                useGrouping: true,
+                            })
+                            .replace(/,/g, ".")}
+                        descriptors={card.descriptors}
+                        isExtended
+                        client:visible
+                    />
+                ))
             }
         </div>
     </div>
 </section>
 
-<!-- GSAP-анимация -->
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
