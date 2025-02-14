@@ -37,7 +37,7 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
                     {title}
                 </span>
 
-                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-8 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>
+                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-5 3xl:gap-x-6 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>
                     {descriptors?.map((descriptor, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
@@ -49,9 +49,9 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
                 </div>
             </div>
 
-            <div className={`flex ${isExtended ? "flex-col items-end justify-between" : "flex-row flex-wrap justify-between w-full mt-auto gap-3 xl:gap-4 items-center"} z-20`}>
+            <div className={`flex ${isExtended ? "flex-col items-end justify-between" : "flex-row flex-wrap justify-between w-full mt-auto gap-3 items-center"} z-20`}>
                 <span
-                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[30px] xl:text-[34px]  ${isExtended ? "xl:text-[44px] 2xl:text-[52px]" : ""} `}
+                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[28px]  ${isExtended ? "xl:text-[36px] 2xl:text-[40px]" : "xl:text-[30px]"} `}
                 >
                     {price} тг
                 </span>
