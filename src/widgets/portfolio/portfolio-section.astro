@@ -4,8 +4,6 @@ import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import PortfolioCard from "../../features/portfolio/ui/portfolio-card/portfolio-card.tsx";
 import Button from "../../shared/ui/button/button.astro";
 
-import type { ImageSliderProps } from "../../features/portfolio/ui/portfolio-card/portfolio-card";
-
 const response = await fetch(
     "http://localhost:1337/api/portfolio-packages?populate=*",
 );
@@ -52,7 +50,7 @@ const formattedData = data.map((card: any) => ({
         class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-16 items-center mt-8 mb-12 last:mb-0 w-full"
     >
         {
-            data?.map((card: ImageSliderProps, index: number) => (
+            data?.map((index: number) => (
                 <div
                     class={`portfolio-card opacity-0 translate-y-10 
                     ${

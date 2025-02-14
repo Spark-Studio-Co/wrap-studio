@@ -2,8 +2,8 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import { PriceCard } from "../../features/price/ui/price-card/price-card";
+
 import type { PriceCardProps } from "../../features/price/ui/price-card/price-card";
-import { mockData } from "../../features/price/lib/mock-data";
 
 const response = await fetch("http://localhost:1337/api/service-packages");
 const json = await response.json();
