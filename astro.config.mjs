@@ -10,4 +10,7 @@ export default defineConfig({
   },
   output: "static",
   integrations: [react(), tailwind()],
+  service: {
+    entrypoint: 'astro/assets/services/sharp'
+  }
 });
