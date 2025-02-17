@@ -7,16 +7,100 @@ import "../styles/global.css";
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
-		<meta property="og:image" content="/public/images/logo.svg" />
-		<meta property="og:url" content="https://wrapstudio.kz/" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content="Astro" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} /><title>
-			Wrap Studio
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Primary Meta Tags -->
+		<title>
+			Wrap Studio - Профессиональная оклейка автомобилей в Астане
 		</title>
-	</head><body class="mx-auto">
+		<meta
+			name="title"
+			content="Wrap Studio - Профессиональная оклейка автомобилей в Астане"
+		/>
+		<meta
+			name="description"
+			content="Профессиональная оклейка автомобилей, защита кузова, тонировка и детейлинг в Астане. Качественные материалы и опытные мастера."
+		/>
+		<meta
+			name="keywords"
+			content="оклейка автомобилей, защита кузова, тонировка, детейлинг, Астана, wrap studio"
+		/>
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://wrapstudio.kz/" />
+		<meta
+			property="og:title"
+			content="Wrap Studio - Профессиональная оклейка автомобилей в Астане"
+		/>
+		<meta
+			property="og:description"
+			content="Профессиональная оклейка автомобилей, защита кузова, тонировка и детейлинг в Астане. Качественные материалы и опытные мастера."
+		/>
+		<meta
+			property="og:image"
+			content="https://wrapstudio.kz/og-image.jpg"
+		/>
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://wrapstudio.kz/" />
+		<meta
+			name="twitter:title"
+			content="Wrap Studio - Профессиональная оклейка автомобилей в Астане"
+		/>
+		<meta
+			name="twitter:description"
+			content="Профессиональная оклейка автомобилей, защита кузова, тонировка и детейлинг в Астане. Качественные материалы и опытные мастера."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://wrapstudio.kz/og-image.jpg"
+		/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+
+		<!-- PWA -->
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="theme-color" content="#080808" />
+
+		<!-- Preload -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="preload"
+			href="/fonts/unisans.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/montserrat.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+
+		<link rel="canonical" href="https://wrapstudio.kz/" />
+	</head>
+	<body class="mx-auto antialiased">
 		<slot />
 	</body>
 </html>

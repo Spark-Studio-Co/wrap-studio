@@ -1,0 +1,34 @@
+{
+  "name": "Wrap Studio",
+  "short_name": "WrapStudio",
+  "description": "Профессиональная оклейка автомобилей, защита кузова, тонировка и детейлинг в Астане",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "type": "svg/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "type": "svg/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "lang": "ru",
+  "categories": [
+    "business",
+    "automotive"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.jpg",
+      "sizes": "1080x1920",
+      "type": "webp"
+    }
+  ]
+}
