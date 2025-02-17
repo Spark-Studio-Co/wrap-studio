@@ -48,7 +48,7 @@ const Button: React.FC<Props> = ({
     return (
         <button
             className={[...baseClasses, variantClasses[variant]].join(" ")}
-            onClick={!disabled ? onClick : undefined}
+            onClick={!disabled ? onClick ? onClick : () => open() : undefined}
             type={type}
             disabled={disabled}
         >

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+
 import { usePopupStore } from "@/shared/model/open-popup-store";
 
 export interface SendFormData {
@@ -71,7 +72,7 @@ export function useSendEmail() {
     });
 
     const successPopup = usePopupStore('success');
-    const formPopup = usePopupStore('form');
+    const formPopup = usePopupStore('formPopup');
 
     const onSubmit = async (data: SendFormData, event?: React.BaseSyntheticEvent) => {
         console.log('Form submission started with data:', data);
@@ -102,14 +103,12 @@ export function useSendEmail() {
             );
             console.log('✅ Email sent successfully!');
 
-            // Reset form and handle popups
-            reset();
+            // Close form popup immediately
             formPopup.close();
             
-            // Small delay before showing success popup
-            setTimeout(() => {
-                successPopup.open();
-            }, 100);
+            // Reset form and show success popup
+            reset();
+            successPopup.open();
 
             console.log('🔄 Form reset complete');
         } catch (error) {
