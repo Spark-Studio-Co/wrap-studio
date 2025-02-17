@@ -1,7 +1,8 @@
+import { usePopupStore } from '@/shared/model/open-popup-store';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
-import { usePopupStore } from '@/shared/model/open-popup-store';
-import { Form } from '../form/form';
+import PcLogoIcon from '/public/images/logo-icon-pc.svg';
+import LogoIcon from '/public/images/logo-mob.svg';
 
 const overlayVariants = {
     hidden: { opacity: 0 },
@@ -34,8 +35,8 @@ const contentVariants = {
     }
 };
 
-export const FormPopup = () => {
-    const { close, isOpen } = usePopupStore('formPopup');
+export const SuccessPopup = () => {
+    const { close, isOpen } = usePopupStore('success');
     const popupRef = useRef<HTMLDivElement>(null);
 
     const handleClick = (e: React.MouseEvent) => {
@@ -56,34 +57,32 @@ export const FormPopup = () => {
                     onClick={handleClick}
                 >
                     <motion.div
-                        role="dialog"
-                        aria-labelledby="modal-title"
-                        aria-describedby="modal-content"
                         ref={popupRef}
-                        className="bg-[#080808] relative p-8 max-w-md flex flex-col items-center text-center border border-secondary-dark rounded-[12px] w-full"
+                        className="bg-[#080808] relative p-8 max-w-md w-full flex flex-col items-center text-center border border-secondary-dark rounded-[12px]"
                         variants={contentVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                     >
-                        <span
-                            className="absolute inset-0 flex justify-center items-center text-[128px] font-walk-da-walk font-[400] text-secondary opacity-5 z-0"
-                            style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
-                        >
-                            WRAP STUDIO
-                        </span>
                         <button
                             onClick={close}
-                            className="text-primary transition-colors absolute right-4 top-4"
+                            className=" text-primary transition-colors absolute right-4 top-4"
                             aria-label='button close'
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
-                        <div className='relative z-50 w-full'>
-                            <Form isFull />
-                        </div>
+                        <>
+                            <img src={PcLogoIcon.src} alt="Logo" className="mt-8 mb-6 lg:flex hidden" />
+                            <img src={PcLogoIcon.src} alt="Logo" className="mt-8 mb-6 lg:hidden flex w-[260px]" />
+                        </>
+                        <span className="text-2xl font-bold mb-4 text-primary font-gotham">
+                            Сообщение отправлено!
+                        </span>
+                        <p className="text-secondary text-center font-mont-alter">
+                            Мы свяжемся с вами в ближайшее время.
+                        </p>
                     </motion.div>
                 </motion.div>
             )}

@@ -11,6 +11,7 @@ interface Props {
     onClick?: () => void;
     type?: "button" | "submit" | "reset";
     fontSize?: string;
+    disabled?: boolean;
 }
 
 const Button: React.FC<Props> = ({
@@ -21,32 +22,35 @@ const Button: React.FC<Props> = ({
     height = "h-[50px] sm:h-[55px] lg:h-[45px] xl:h-[55px]",
     onClick,
     type = "button",
-    fontSize,
+    disabled
 }) => {
     const { open } = usePopupStore("formPopup");
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
-        setIsClient(true); // Ensure hydration happens only in client
+        setIsClient(true);
     }, []);
+
+    const baseClasses = [
+        width,
+        height,
+        "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300",
+        disabled ? "opacity-70 cursor-not-allowed" : "cursor-pointer",
+        className
+    ];
+
+    const variantClasses = {
+        default: "bg-primary font-medium text-white text-[16px] hover:bg-transparent hover:border hover:border-primary",
+        outline: "border border-primary font-medium text-white text-[16px] hover:bg-primary",
+        link: "text-primary hover:text-white"
+    };
 
     return (
         <button
-            className={[
-                width,
-                height,
-                "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300",
-                variant === "default"
-                    ? "bg-primary font-medium text-white text-[16px] sm:text-[18px] hover:bg-transparent hover:border hover:border-primary"
-                    : variant === "outline"
-                        ? "bg-transparent border border-primary font-medium text-primary text-[16px] sm:text-[18px] hover:bg-primary hover:text-white"
-                        : "font-medium text-secondary text-[16px] sm:text-[18px]",
-                className,
-                fontSize ? fontSize : "",
-                isClient ? "" : "opacity-100 scale-100", // Fix hydration mismatch
-            ].join(" ")}
-            onClick={onClick ? onClick : () => open()}
+            className={[...baseClasses, variantClasses[variant]].join(" ")}
+            onClick={!disabled ? onClick : undefined}
             type={type}
+            disabled={disabled}
         >
             {text}
         </button>

@@ -7,9 +7,10 @@ interface SelectInputProps {
     value: string[];
     onChange: (value: string[]) => void;
     isPopup?: boolean;
+    error?: string;
 }
 
-export const SelectInput = ({ options, value, onChange, isPopup = false }: SelectInputProps) => {
+export const SelectInput = ({ options, value, onChange, isPopup = false, error }: SelectInputProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOption = (option: string) => {
@@ -24,7 +25,7 @@ export const SelectInput = ({ options, value, onChange, isPopup = false }: Selec
         <div className="relative w-full">
             <button
                 type="button"
-                className={`w-full bg-transparent border border-secondary-dark py-3.5 px-4 text-white font-mont-alter font-[400] focus:outline-none flex justify-between items-center ${isPopup ? "text-[12px] sm:text-[13px] md:text-[14px]" : "text-[14px] sm:text-[16px] md:text-[18px]"}`}
+                className={`w-full bg-transparent border ${error ? 'border-red-500' : 'border-secondary-dark'} py-3.5 px-4 text-white font-mont-alter font-[400] focus:outline-none flex justify-between items-center ${isPopup ? "text-[12px] sm:text-[13px] md:text-[14px]" : "text-[14px] sm:text-[16px] md:text-[18px]"}`}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="truncate self-start overflow-hidden whitespace-nowrap">
@@ -37,6 +38,12 @@ export const SelectInput = ({ options, value, onChange, isPopup = false }: Selec
                     <ChevronDown className="w-5 h-5 text-primary" />
                 </motion.div>
             </button>
+
+            {error && (
+                <span className="text-red-500 text-sm mt-1">
+                    {error}
+                </span>
+            )}
 
             <AnimatePresence>
                 {isOpen && (

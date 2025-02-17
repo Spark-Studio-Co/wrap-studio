@@ -60,7 +60,7 @@ export const Header = () => {
                     variant="default"
                     width="lg:w-[180px] xl:w-[220px]"
                     height="lg:h-[45px] xl:h-[55px]"
-                    fontSize="lg:text-[13px] xl:text-[16px]"
+                    fontSize="lg:text-[12px]"
                     onClick={open}
                 />
             </nav>

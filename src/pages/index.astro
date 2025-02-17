@@ -15,6 +15,7 @@ import AboutSection from "../widgets/about/about-section.astro";
 import PriceSection from "../widgets/price/price-section.astro";
 import PortfolioSection from "../widgets/portfolio/portfolio-section.astro";
 import ContactsSection from "../widgets/contacts/contacts-section.astro";
+import { SuccessPopup } from "@/features/contacts/ui/success-popup/success-popup";
 ---
 
 <Layout>
@@ -34,4 +35,5 @@ import ContactsSection from "../widgets/contacts/contacts-section.astro";
 	<FormPopup client:idle />
 	<ServiceFormPopup client:idle />
 	<ContentPopup client:idle />
+	<SuccessPopup client:idle />
 </Layout>
