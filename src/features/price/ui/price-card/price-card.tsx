@@ -6,7 +6,7 @@ import { usePopupStore } from "@/shared/model/open-popup-store";
 
 import TablerWheelIcon from "/public/images/tabler-wheel-icon.svg";
 
-export interface PriceCardProps {
+interface PriceCardProps {
     title: string;
     price: string;
     descriptors: string[];
@@ -31,21 +31,20 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
             <div>
                 <span
-                    className={`text-white uppercase font-gotham font-[500] group-hover:text-primary transition-colors duration-300 ease-in-out 
-                    ${isExtended ? "xl:text-[38px] 2xl:text-[48px] uppercase" : "text-[22px] sm:text-[28px] md:text-[32px] lg:text-[22px] xl:text-[24px] 2xl:text-[32px]"} leading-[37px] mb-4`}
+                    className={`text-white font-gotham font-[500] group-hover:text-primary transition-colors duration-300 ease-in-out 
+                    ${isExtended ? "xl:text-[38px] 2xl:text-[48px]" : "text-[22px] sm:text-[28px] md:text-[32px] lg:text-[22px] xl:text-[24px] 2xl:text-[32px]"} leading-[37px] mb-4`}
                 >
-                    {title}
+                    {title.toUpperCase()}
                 </span>
 
-                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-5 3xl:gap-x-6 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>
-                    {descriptors?.map((descriptor, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                            <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
-                            <span className="text-white font-mont-alter font-[600] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[16px] 2xl:text-[20px] leading-[37px] -mt-2 whitespace-pre-line">
-                                {descriptor}
-                            </span>
-                        </div>
-                    ))}
+                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-5 3xl:gap-x-6 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>                    {descriptors.map((descriptor, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                        <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
+                        <span className="text-white font-mont-alter font-[600] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[16px] 2xl:text-[20px] leading-[37px] -mt-2 whitespace-pre-line">
+                            {descriptor}
+                        </span>
+                    </div>
+                ))}
                 </div>
             </div>
 
@@ -66,6 +65,6 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
                     />
                 </div>
             </div>
-        </div>
+        </div >
     );
 };

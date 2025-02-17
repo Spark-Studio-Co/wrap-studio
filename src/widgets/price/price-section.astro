@@ -2,19 +2,13 @@
 import Heading from "../../shared/ui/heading/heading.astro";
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import { PriceCard } from "../../features/price/ui/price-card/price-card";
-
-import type { PriceCardProps } from "../../features/price/ui/price-card/price-card";
-
-const response = await fetch("http://localhost:1337/api/service-packages");
-const json = await response.json();
-const data = json.data;
+import { mockData } from "../../features/price/lib/mock-data";
 ---
 
 <section
     class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] flex items-center flex-col mx-auto mt-[64px] lg:mt-0 leading-none"
     id="price"
 >
-    <!-- Фоновый текст -->
     <span
         id="priceBackgroundText"
         class="hidden select-none lg:flex justify-center items-center lg:text-[260px] xl:text-[340px] 2xl:text-[420px] font-walk-da-walk font-[400] text-[#50C87809] z-0 uppercase mb-12 opacity-0 scale-90"
@@ -23,7 +17,6 @@ const data = json.data;
         detailing
     </span>
 
-    <!-- Заголовок и описание -->
     <div
         id="priceHeadingWrapper"
         class="flex lg:hidden flex-col items-center w-full opacity-0 translate-y-10"
@@ -37,20 +30,12 @@ const data = json.data;
         />
     </div>
 
+    <!-- Карточки прайс-листа -->
     <div id="priceCardsMob" class="flex flex-col items-center w-full lg:hidden">
         {
-            data.map((card: PriceCardProps) => (
+            mockData.map((card) => (
                 <div class="price-card opacity-0 translate-y-10 flex flex-col items-center mb-8 last:mb-0 w-full">
-                    <PriceCard
-                        title={card.title}
-                        price={Number(card.price)
-                            .toLocaleString("en-US", {
-                                useGrouping: true,
-                            })
-                            .replace(/,/g, ".")}
-                        descriptors={card.descriptors}
-                        client:visible
-                    />
+                    <PriceCard {...card} client:visible />
                 </div>
             ))
         }
@@ -62,34 +47,16 @@ const data = json.data;
             class="hidden lg:grid lg:grid-cols-2 gap-x-4"
         >
             {
-                data.slice(0, 2).map((card: PriceCardProps) => (
+                mockData.slice(0, 2).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard
-                            title={card.title}
-                            price={Number(card.price)
-                                .toLocaleString("en-US", {
-                                    useGrouping: true,
-                                })
-                                .replace(/,/g, ".")}
-                            descriptors={card.descriptors}
-                            client:visible
-                        />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
             {
-                data.slice(2, 4).map((card: PriceCardProps) => (
+                mockData.slice(2, 4).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex mt-4 flex-col items-center last:mb-0 w-full">
-                        <PriceCard
-                            title={card.title}
-                            price={Number(card.price)
-                                .toLocaleString("en-US", {
-                                    useGrouping: true,
-                                })
-                                .replace(/,/g, ".")}
-                            descriptors={card.descriptors}
-                            client:visible
-                        />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
@@ -99,18 +66,9 @@ const data = json.data;
     <div class="hidden xl:block w-full">
         <div id="priceCardsXL" class="hidden xl:grid xl:grid-cols-3 gap-x-4">
             {
-                data.slice(0, 3).map((card: PriceCardProps) => (
+                mockData.slice(0, 3).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard
-                            title={card.title}
-                            price={Number(card.price)
-                                .toLocaleString("en-US", {
-                                    useGrouping: true,
-                                })
-                                .replace(/,/g, ".")}
-                            descriptors={card.descriptors}
-                            client:visible
-                        />
+                        <PriceCard {...card} client:visible />
                     </div>
                 ))
             }
@@ -121,24 +79,17 @@ const data = json.data;
             class="hidden xl:flex xl:col-span-3 w-full mt-8 opacity-0 translate-y-10"
         >
             {
-                data.slice(3, 4).map((card: PriceCardProps) => (
-                    <PriceCard
-                        title={card.title}
-                        price={Number(card.price)
-                            .toLocaleString("en-US", {
-                                useGrouping: true,
-                            })
-                            .replace(/,/g, ".")}
-                        descriptors={card.descriptors}
-                        isExtended
-                        client:visible
-                    />
-                ))
+                mockData
+                    .slice(3, 4)
+                    .map((card) => (
+                        <PriceCard {...card} isExtended client:visible />
+                    ))
             }
         </div>
     </div>
 </section>
 
+<!-- GSAP-анимация -->
 <script>
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
