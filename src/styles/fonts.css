@@ -43,7 +43,7 @@
     font-family: 'Montserrat Alternates';
     src: url('/public/fonts/Montserrat Alternates/MontserratAlternates-ExtraLight.ttf') format('truetype');
     font-style: normal;
-    font-weight: 200;  /* Extra Light */
+    font-weight: 200;  
     font-display: swap;
 }
 

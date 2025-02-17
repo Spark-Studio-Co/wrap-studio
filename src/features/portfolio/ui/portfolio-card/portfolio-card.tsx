@@ -17,7 +17,7 @@ export default function ImageSlider({ images, title, description }: ImageSliderP
 
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000);
+        }, 5000) as unknown as number;
 
         return () => clearInterval(interval);
     }, [images.length, isLgScreen]);
