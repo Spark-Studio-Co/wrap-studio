@@ -52,7 +52,7 @@ export const mockData = [
         ],
     },
     {
-        title: 'Полная шумоизоляция ',
+        title: 'Полная шумоизоляция',
         price: 'От 400.000',
         descriptors: [
             "Пол",
