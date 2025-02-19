@@ -105,28 +105,6 @@ export const portfolioCards = [
     },
     {
         images: [
-            sportage01,
-            sportage02,
-            sportage03,
-            sportage04,
-            sportage05,
-            sportage06,
-            sportage07,
-            sportage08,
-            sportage09,
-            sportage10,
-            sportage11,
-        ],
-        title: 'Genesis GV70',
-        descriptors: [
-            "⁠Оклейка фронтальной части (lux пакет)",
-            "⁠Притемнение задней оптики",
-            "⁠Защита всех глянцевых элементов по кузову",
-            "⁠Полная защита салонного пластика, включая спинки передних сидений",
-        ],
-    },
-    {
-        images: [
             genesis01,
             genesis02,
             genesis03,
@@ -140,6 +118,28 @@ export const portfolioCards = [
             genesis11,
             genesis12,
             genesis13,
+        ],
+        title: 'Genesis GV70',
+        descriptors: [
+            "⁠Оклейка фронтальной части (lux пакет)",
+            "⁠Притемнение задней оптики",
+            "⁠Защита всех глянцевых элементов по кузову",
+            "⁠Полная защита салонного пластика, включая спинки передних сидений",
+        ],
+    },
+    {
+        images: [
+            sportage01,
+            sportage02,
+            sportage03,
+            sportage04,
+            sportage05,
+            sportage06,
+            sportage07,
+            sportage08,
+            sportage09,
+            sportage10,
+            sportage11,
         ],
         title: 'Kia Sportage 2024 г',
         descriptors: [
