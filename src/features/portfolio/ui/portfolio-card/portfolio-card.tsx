@@ -37,12 +37,23 @@ export default function ImageSlider({ images, title, descriptors, isExtended }: 
 
     return (
         <div ref={sliderRef} className={`w-full flex flex-col items-start relative`}>
-            <div className="relative w-full group">
-                <div
-                    className="relative w-full h-auto bg-cover bg-center rounded-[12px] transition-all duration-1000 ease-in-out"
-                    style={{ backgroundImage: `url(${images[currentIndex].src})`, paddingBottom: "56.25%" }}
+            <div className="relative w-full group overflow-hidden rounded-[12px]">
+                {images.map((image, index) => (
+                    <div
+                        key={index}
+                        className="absolute w-full h-full bg-cover bg-center transition-opacity duration-700 ease-in-out"
+                        style={{
+                            backgroundImage: `url(${image.src})`,
+                            opacity: index === currentIndex ? 1 : 0,
+                            zIndex: index === currentIndex ? 1 : 0
+                        }}
+                    />
+                ))}
+                <div 
+                    className="relative w-full"
+                    style={{ paddingBottom: "56.25%" }}
                 />
-                <div className="hidden xl:flex absolute top-1/2 left-0 right-0 justify-between px-4 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                <div className="hidden xl:flex absolute top-1/2 left-0 right-0 justify-between px-4 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-10">
                     <SwiperButton variant="prev" onClick={handlePrev} isFull />
                     <SwiperButton variant="next" onClick={handleNext} isFull />
                 </div>

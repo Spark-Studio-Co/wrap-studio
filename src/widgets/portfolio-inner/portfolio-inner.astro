@@ -26,16 +26,9 @@ import { portfolioCards } from "../../features/portfolio/lib/mock-data";
         class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-16 mt-8 mb-12 last:mb-0 w-full"
     >
         {
-            portfolioCards.map((card, index) => (
-                <div
-                    class={`portfolio-card opacity-0 translate-y-10 
-                    ${index === portfolioCards.length - 1 ? "lg:col-span-2" : ""}`}
-                >
-                    <PortfolioCard
-                        {...card}
-                        isExtended={index === portfolioCards.length - 1}
-                        client:visible
-                    />
+            portfolioCards.map((card) => (
+                <div class={`portfolio-card opacity-0 translate-y-10 `}>
+                    <PortfolioCard {...card} client:visible />
                 </div>
             ))
         }

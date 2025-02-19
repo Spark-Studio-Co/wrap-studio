@@ -18,7 +18,7 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
     return (
         <div
-            className={`group hover:shadow-[0px_4px_128px_0px_#50C87840] transition-all duration-300 ease-in-out hover:border-primary relative w-full ${isExtended ? "flex flex-row items-start justify-between h-full" : "flex-col flex items-start lg:h-full min-h-[610px]"} 
+            className={`group hover:shadow-[0px_4px_128px_0px_#50C87840] transition-all duration-300 ease-in-out hover:border-primary relative w-full ${isExtended ? "flex flex-row items-start justify-between h-full xl:min-h-[300px]" : "flex-col flex items-start lg:h-full h-[610px]"} 
             p-[20px] lg:p-[20px] xl:p-[24px] 2xl:p-[28px] border border-secondary-dark rounded-[12px] overflow-hidden `}
         >
             <span
