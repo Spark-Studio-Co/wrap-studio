@@ -30,7 +30,6 @@ import { mockData } from "../../features/price/lib/mock-data";
         />
     </div>
 
-    <!-- Карточки прайс-листа -->
     <div id="priceCardsMob" class="flex flex-col items-center w-full lg:hidden">
         {
             mockData.map((card) => (
@@ -44,18 +43,15 @@ import { mockData } from "../../features/price/lib/mock-data";
     <div class="hidden xl:hidden lg:flex w-full">
         <div
             id="priceCardsDesktop"
-            class="hidden lg:grid lg:grid-cols-2 gap-x-4"
+            class="hidden lg:grid lg:grid-cols-2 gap-x-4 gap-y-4"
         >
             {
-                mockData.slice(0, 2).map((card) => (
-                    <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
-                        <PriceCard {...card} client:visible />
-                    </div>
-                ))
-            }
-            {
-                mockData.slice(2, 4).map((card) => (
-                    <div class="price-card opacity-0 translate-y-10 flex mt-4 flex-col items-center last:mb-0 w-full">
+                mockData.map((card, index) => (
+                    <div
+                        class={`price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full ${
+                            index === mockData.length - 1 ? "lg:col-span-2" : ""
+                        }`}
+                    >
                         <PriceCard {...card} client:visible />
                     </div>
                 ))
@@ -64,9 +60,19 @@ import { mockData } from "../../features/price/lib/mock-data";
     </div>
 
     <div class="hidden xl:block w-full">
-        <div id="priceCardsXL" class="hidden xl:grid xl:grid-cols-3 gap-x-4">
+        <div
+            id="priceCardsXL"
+            class="hidden xl:grid xl:grid-cols-3 gap-x-4 gap-y-4"
+        >
             {
                 mockData.slice(0, 3).map((card) => (
+                    <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
+                        <PriceCard {...card} client:visible />
+                    </div>
+                ))
+            }
+            {
+                mockData.slice(3, 6).map((card) => (
                     <div class="price-card opacity-0 translate-y-10 flex flex-col items-center last:mb-0 w-full">
                         <PriceCard {...card} client:visible />
                     </div>
@@ -80,7 +86,7 @@ import { mockData } from "../../features/price/lib/mock-data";
         >
             {
                 mockData
-                    .slice(3, 4)
+                    .slice(6, 7)
                     .map((card) => (
                         <PriceCard {...card} isExtended client:visible />
                     ))

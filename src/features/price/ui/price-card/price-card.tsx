@@ -37,20 +37,21 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
                     {title.toUpperCase()}
                 </span>
 
-                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-5 3xl:gap-x-6 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>                    {descriptors.map((descriptor, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                        <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
-                        <span className="text-white font-mont-alter font-[600] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[16px] 2xl:text-[20px] leading-[37px] -mt-2 whitespace-pre-line">
-                            {descriptor}
-                        </span>
-                    </div>
-                ))}
+                <div className={`${isExtended ? "mt-8 grid grid-cols-3 xl:gap-x-4 2xl:gap-x-5 3xl:gap-x-6 gap-y-4" : "flex-grow flex flex-col gap-4 mt-6 mb-4"}`}>
+                    {descriptors.map((descriptor, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                            <img src={TablerWheelIcon.src} alt="Tabler Wheel Icon" className="self-start shrink-0" loading="lazy" />
+                            <span className={`text-white font-mont-alter font-[600] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[16px] 2xl:text-[20px] leading-[37px] -mt-2 ${isExtended && 'whitespace-nowrap'}`}>
+                                {descriptor}
+                            </span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
             <div className={`flex ${isExtended ? "flex-col items-end justify-between" : "flex-row flex-wrap justify-between w-full mt-auto gap-3 items-center"} z-20`}>
                 <span
-                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[28px]  ${isExtended ? "xl:text-[36px] 2xl:text-[40px]" : "xl:text-[30px]"} `}
+                    className={`font-gotham text-primary font-[400] text-[30px] sm:text-[38px] lg:text-[24px]  ${isExtended ? "xl:text-[32px] 2xl:text-[38px] whitespace-nowrap" : "xl:text-[28px]"} `}
                 >
                     {price} тг
                 </span>
