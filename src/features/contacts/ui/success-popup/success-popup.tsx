@@ -2,7 +2,6 @@ import { usePopupStore } from '@/shared/model/open-popup-store';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
 import PcLogoIcon from '/public/images/logo-icon-pc.svg';
-import LogoIcon from '/public/images/logo-mob.svg';
 
 const overlayVariants = {
     hidden: { opacity: 0 },
