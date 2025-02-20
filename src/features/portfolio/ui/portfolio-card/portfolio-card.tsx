@@ -80,7 +80,7 @@ export default function ImageSlider({ images, title, descriptors, isExtended }: 
                     </div>
                 ))}
                 <div
-                    className="relative w-full pb-[100%] "
+                    className="relative w-full pb-[120%] lg:pb-[100%]"
                 />
                 <div className="hidden xl:flex absolute top-1/2 left-0 right-0 justify-between px-4 -translate-y-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-10">
                     <SwiperButton variant="prev" onClick={handlePrev} isFull />
