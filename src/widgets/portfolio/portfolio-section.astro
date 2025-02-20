@@ -35,11 +35,13 @@ import { portfolioCards } from "../../features/portfolio/lib/mock-data";
 
     <div
         id="portfolioCards"
-        class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-16 mt-8 mb-12 last:mb-0 w-full"
+        class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-11 lg:gap-y-24 gap-y-8 lg:mt-16 mt-8 mb-12 w-full"
     >
         {
             portfolioCards.slice(0, 4).map((card) => (
-                <div class={`portfolio-card opacity-0 translate-y-10 `}>
+                <div
+                    class={`portfolio-card opacity-0 translate-y-10 mb-20 lg:mb-0 last:mb-0`}
+                >
                     <PortfolioCard {...card} client:visible />
                 </div>
             ))
