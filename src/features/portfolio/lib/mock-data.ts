@@ -16,7 +16,6 @@ import tucson01 from '/public/images/tucson01.webp'
 import tucson02 from '/public/images/tucson02.webp'
 import tucson03 from '/public/images/tucson03.webp'
 import tucson04 from '/public/images/tucson04.webp'
-import tucson05 from '/public/images/tucson05.webp'
 import tucson06 from '/public/images/tucson06.webp'
 import tucson07 from '/public/images/tucson07.webp'
 import tucson08 from '/public/images/tucson08.webp'
@@ -88,7 +87,6 @@ export const portfolioCards = [
             tucson02,
             tucson03,
             tucson04,
-            tucson05,
             tucson06,
             tucson07,
             tucson08,

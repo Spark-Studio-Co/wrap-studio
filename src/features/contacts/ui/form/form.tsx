@@ -89,7 +89,7 @@ export const Form = ({
               error={errors[name]?.message}
             />
             {errors[name] && (
-              <span className="text-red-500 text-sm mt-1">
+              <span className="text-red-500 text-xs lg:text-sm mt-1 font-mont-alter">
                 {errors[name]?.message}
               </span>
             )}
@@ -124,6 +124,7 @@ export const Form = ({
         text={isSubmitting ? "Отправка..." : "Отправить"}
         type="submit"
         variant="default"
+        onClick={() => { }}
         className={`mt-4 sm:mt-6 md:mt-8 ${isSubmitting ? 'opacity-70' : ''}`}
         width="w-[210px] sm:w-[240px]"
         height="h-[50px] sm:h-[55px]"

@@ -18,7 +18,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((
 ) => {
     return (
         <input
-            required
             ref={ref}
             placeholder={placeholder}
             type={type}

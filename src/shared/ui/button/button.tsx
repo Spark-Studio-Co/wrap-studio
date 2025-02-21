@@ -34,15 +34,15 @@ const Button: React.FC<Props> = ({
     const baseClasses = [
         width,
         height,
-        "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300",
+        "font-mont-alter flex items-center justify-center rounded-[32px] uppercase transition-colors duration-300 flex items-center justify-center",
         disabled ? "opacity-70 cursor-not-allowed" : "cursor-pointer",
         className
     ];
 
     const variantClasses = {
-        default: "bg-primary font-medium text-white text-[16px] hover:bg-transparent hover:border hover:border-primary",
-        outline: "border border-primary font-medium text-white text-[16px] hover:bg-primary",
-        link: "text-primary hover:text-white"
+        default: "bg-primary font-medium text-white text-[16px] hover:bg-transparent hover:border hover:border-primary flex items-center justify-center",
+        outline: "border border-primary font-medium text-white text-[16px] hover:bg-primary flex items-center justify-center",
+        link: "text-primary hover:text-white flex items-center justify-center"
     };
 
     return (
