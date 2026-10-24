@@ -5,7 +5,7 @@ import Button from '../../../../shared/ui/button/button'
 import { usePopupStore } from "@/shared/model/open-popup-store";
 
 import { links } from "../../model/links";
-import logo from '/public/images/logo.svg'
+import logo from '/public/images/wrap-studio-f1.webp'
 
 export const Header = () => {
 
@@ -39,7 +39,7 @@ export const Header = () => {
 
     return (
         <header className="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] mx-auto flex justify-between items-center mt-8 lg:mt-12 absolute top-0 left-0 right-0 z-50 ">
-            <a href="/"><img src={logo.src} alt="Logo" className="w-[100px] sm:w-[120px] md:w-[140px]" loading="eager" />
+            <a href="/"><img src={logo.src} alt="Wrap Studio" className="w-[162px] sm:w-[176px] lg:w-[188px] h-[72px] lg:h-[80px] object-contain" loading="eager" />
             </a>
             <div className="lg:hidden">
                 <BurgerButton />

@@ -13,7 +13,7 @@ export const links = [
     },
     {
         label: "Портфолио",
-        href: "/#portfolio"
+        href: "/portfolio"
     },
     {
         label: "КОНТАКТЫ",

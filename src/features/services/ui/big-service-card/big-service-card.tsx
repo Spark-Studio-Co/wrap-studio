@@ -59,7 +59,7 @@ export const BigServiceCard = () => {
     return (
         <div
             ref={cardRef}
-            className="w-full h-[350px] flex flex-col border border-secondary-dark rounded-[12px] justify-between p-[32px] mt-5 relative overflow-hidden group transition-shadow duration-300 ease-in-out hover:shadow-[0px_4px_128px_0px_#50C87840] hover:border-primary"
+            className="w-full h-[350px] flex flex-col border border-secondary-dark rounded-[12px] justify-between p-[32px] mt-5 relative overflow-hidden group transition-shadow duration-300 ease-in-out hover:shadow-[0px_4px_128px_0px_#DA0F2140] hover:border-primary"
         >
             {/* Фоновый текст */}
             <span

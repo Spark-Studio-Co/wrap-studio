@@ -48,7 +48,7 @@ export default function CarSwiper() {
                     }
                 }}
                 className="h-auto overflow-visible"
-                style={{ boxShadow: '0px 0px 0px 0px #50C87840' }}
+                style={{ boxShadow: '0px 0px 0px 0px #DA0F2140' }}
             >
                 {carImages.map((image, index) => (
                     <SwiperSlide
@@ -60,13 +60,13 @@ export default function CarSwiper() {
                         style={{
                             transition: animating ? "opacity 0.9s ease, transform 0.9s ease" : "none",
                             willChange: "opacity, transform",
-                            boxShadow: '0px 4px 128px 0px #50C87840'
+                            boxShadow: '0px 4px 128px 0px #DA0F2140'
                         }}
                         onTransitionEnd={() => setAnimating(false)}
                     >
                         <div
                             className="relative w-full h-[500px] bg-cover bg-center transition-all duration-[900ms] ease-in-out"
-                            style={{ backgroundImage: `url(${image.src})`, paddingBottom: '56.25%', boxShadow: '0px 0px 128px -32px #50C87840' }}
+                            style={{ backgroundImage: `url(${image.src})`, paddingBottom: '56.25%', boxShadow: '0px 0px 128px -32px #DA0F2140' }}
                         >
                         </div>
                     </SwiperSlide>

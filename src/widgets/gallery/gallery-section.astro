@@ -1,0 +1,94 @@
+---
+import Heading from "../../shared/ui/heading/heading.astro";
+
+const galleryImages = [
+    { src: "/images/gallery/bmw-05.webp", alt: "Белый BMW у диагностического центра", width: 1440, height: 1920 },
+    { src: "/images/gallery/toyota-interior-01.webp", alt: "Салон Toyota с материалами STEK ForceShield", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-detail-02.webp", alt: "Деталь боковой части белого BMW", width: 1440, height: 1920 },
+    { src: "/images/gallery/team-01.webp", alt: "Команда Wrap Studio", width: 1440, height: 2057 },
+    { src: "/images/gallery/team-02.webp", alt: "Команда Wrap Studio на STEK Day", width: 1440, height: 1920 },
+    { src: "/images/gallery/team-03.webp", alt: "Мастера Wrap Studio", width: 1440, height: 1920 },
+    { src: "/images/gallery/team-04.webp", alt: "Команда Wrap Studio в работе", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-01.webp", alt: "BMW после доработки", width: 1440, height: 1920 },
+    { src: "/images/gallery/team-05.webp", alt: "Команда Wrap Studio с гостями", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-02.webp", alt: "Белый BMW перед студией", width: 1440, height: 1920 },
+    { src: "/images/gallery/studio-01.webp", alt: "Автомобили у Wrap Studio", width: 1320, height: 2346 },
+    { src: "/images/gallery/hyundai-01.webp", alt: "Hyundai в защитной плёнке", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-detail-01.webp", alt: "Подготовка салона BMW", width: 1320, height: 2346 },
+    { src: "/images/gallery/hyundai-02.webp", alt: "Hyundai после оклейки", width: 1440, height: 1920 },
+    { src: "/images/gallery/haval-01.webp", alt: "Haval в студии", width: 1440, height: 1920 },
+    { src: "/images/gallery/haval-02.webp", alt: "Детали Haval после оклейки", width: 1440, height: 1920 },
+    { src: "/images/gallery/motorcycle-01.webp", alt: "Мотоцикл Suzuki у Wrap Studio", width: 1440, height: 1920 },
+    { src: "/images/gallery/haval-03.webp", alt: "Матовый Haval после оклейки", width: 1440, height: 1920 },
+    { src: "/images/gallery/motorcycle-02.webp", alt: "Мотоцикл Suzuki сбоку", width: 1440, height: 1920 },
+    { src: "/images/gallery/motorcycle-03.webp", alt: "Передняя часть мотоцикла Suzuki", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-03.webp", alt: "Детали белого BMW", width: 1440, height: 1920 },
+    { src: "/images/gallery/bmw-04.webp", alt: "Белый BMW у диагностического центра", width: 1440, height: 1920 },
+    { src: "/images/gallery/hyundai-03.webp", alt: "Hyundai в студии Wrap Studio", width: 1440, height: 1920 },
+    { src: "/images/gallery/haval-04.webp", alt: "Матовый Haval в боксе", width: 1440, height: 1920 },
+    { src: "/images/gallery/haval-05.webp", alt: "Haval до оклейки", width: 1440, height: 1920 },
+];
+---
+
+<section class="max-w-[90%] lg:max-w-[80%] 3xl:max-w-[1560px] 4xl:max-w-[1540px] mx-auto mt-[96px] lg:mt-[144px] mb-20" aria-labelledby="gallery-heading">
+    <div id="gallery-heading" class="mb-8 lg:mb-12">
+        <Heading level={2} text="// Галерея" />
+    </div>
+
+    <div class="columns-1 sm:columns-2 xl:columns-3 gap-4 lg:gap-6" data-gallery-grid>
+        {
+            galleryImages.map((image) => (
+                <button
+                    class="group mb-4 lg:mb-6 block w-full overflow-hidden rounded-[12px] bg-[#111] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-light"
+                    type="button"
+                    data-gallery-trigger
+                    data-gallery-src={image.src}
+                    data-gallery-alt={image.alt}
+                    aria-label={`Открыть фото: ${image.alt}`}
+                >
+                    <img
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        class="block h-auto w-full transition-transform duration-500 motion-reduce:transition-none sm:group-hover:scale-[1.025]"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </button>
+            ))
+        }
+    </div>
+
+    <dialog class="m-auto w-[min(92vw,980px)] max-w-none overflow-hidden rounded-[12px] border border-white/15 bg-[#080808] p-0 text-white backdrop:bg-black/80" data-gallery-dialog aria-label="Просмотр фотографии">
+        <div class="relative">
+            <img class="max-h-[85dvh] w-full object-contain" data-gallery-image alt="" />
+            <button class="absolute right-3 top-3 rounded-full border border-white/30 bg-black/70 px-4 py-2 font-gotham text-sm text-white transition-colors hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light" type="button" data-gallery-close>
+                Закрыть
+            </button>
+        </div>
+    </dialog>
+</section>
+
+<script>
+    const dialog = document.querySelector<HTMLDialogElement>("[data-gallery-dialog]");
+    const dialogImage = document.querySelector<HTMLImageElement>("[data-gallery-image]");
+    const closeButton = document.querySelector<HTMLButtonElement>("[data-gallery-close]");
+    const triggers = document.querySelectorAll<HTMLButtonElement>("[data-gallery-trigger]");
+
+    triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            if (!dialog || !dialogImage) return;
+
+            dialogImage.src = trigger.dataset.gallerySrc ?? "";
+            dialogImage.alt = trigger.dataset.galleryAlt ?? "";
+            dialog.showModal();
+        });
+    });
+
+    closeButton?.addEventListener("click", () => dialog?.close());
+
+    dialog?.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+    });
+</script>

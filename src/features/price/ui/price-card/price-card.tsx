@@ -18,11 +18,11 @@ export const PriceCard: React.FC<PriceCardProps> = ({ title, price, descriptors,
 
     return (
         <div
-            className={`group hover:shadow-[0px_4px_128px_0px_#50C87840] transition-all duration-300 ease-in-out hover:border-primary relative w-full ${isExtended ? "flex flex-row items-start justify-between h-full xl:min-h-[300px]" : "flex-col flex items-start lg:h-full min-h-[700px]"} 
+            className={`group hover:shadow-[0px_4px_128px_0px_#DA0F2140] transition-all duration-300 ease-in-out hover:border-primary relative w-full ${isExtended ? "flex flex-row items-start justify-between h-full xl:min-h-[300px]" : "flex-col flex items-start lg:h-full min-h-[700px]"}
             p-[20px] lg:p-[20px] xl:p-[24px] 2xl:p-[28px] border border-secondary-dark rounded-[12px] overflow-hidden `}
         >
             <span
-                className={`absolute inset-0 flex items-center justify-center select-none text-[#50C87808] z-0 text-center 
+                className={`absolute inset-0 flex items-center justify-center select-none text-[#DA0F2108] z-0 text-center
                 ${isExtended ? "xl:text-[188px] 2xl:text-[208px]" : "text-[128px] sm:text-[148px] md:text-[148px] lg:text-[128px] 2xl:text-[168px] leading-[128px] sm:leading-[148px] md:leading-[168px] lg:leading-[128px] 2xl:leading-[168px]"}`}
                 style={{ fontFamily: "Walk Da Walk One, sans-serif" }}
             >

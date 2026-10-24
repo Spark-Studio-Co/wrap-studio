@@ -1,11 +1,9 @@
 ---
 import Paragraph from "../../shared/ui/paragraph/paragraph.astro";
 import Button from "@/shared/ui/button/button";
-import { Image } from "astro:assets";
 
 import BackgroundVideo from "/public/videos/video.webm";
-import LogoMob from "/public/images/logo-mob.svg";
-import LogoIcon from "/public/images/logo-icon-pc.svg";
+import WrapStudioLogo from "/public/images/wrap-studio-f1.webp";
 
 import { HeroAnimation } from "@/features/hero/lib/animations/hero-animation";
 ---
@@ -66,18 +64,12 @@ import { HeroAnimation } from "@/features/hero/lib/animations/hero-animation";
         class="flex items-center 4xl:justify-center w-full 4xl:h-full flex-col"
       >
         <h1
-          class="flex items-center flex-col mt-[228px] lg:flex-row lg:gap-y-8"
+          class="flex items-center flex-col mt-[180px] lg:flex-row lg:gap-y-8"
         >
-          <Image
-            src={LogoMob}
-            alt="Studio"
-            class="w-[240px] sm:w-[300px] md:w-[340px] mt-4 lg:hidden flex"
-            loading="eager"
-          />
-          <Image
-            src={LogoIcon}
-            alt="Logo Icon"
-            class="hidden lg:flex"
+          <img
+            src={WrapStudioLogo.src}
+            alt="Wrap Studio"
+            class="w-[280px] sm:w-[360px] md:w-[440px] lg:w-[500px] h-auto mt-4"
             loading="eager"
           />
         </h1>

@@ -72,7 +72,7 @@ export const SelectInput = ({ options, value, onChange, isPopup = false, error }
                     width: 8px;
                 }
                 .custom-scrollbar::-webkit-scrollbar-thumb {
-                    background-color: #50C878; /* Custom green scrollbar */
+                    background-color: #DA0F21; /* Brand scrollbar */
                     border-radius: 4px;
                 }
                 .custom-scrollbar::-webkit-scrollbar-track {

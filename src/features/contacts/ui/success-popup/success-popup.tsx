@@ -1,7 +1,7 @@
 import { usePopupStore } from '@/shared/model/open-popup-store';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef } from 'react';
-import PcLogoIcon from '/public/images/logo-icon-pc.svg';
+import WrapStudioLogo from '/public/images/wrap-studio-f1.webp';
 
 const overlayVariants = {
     hidden: { opacity: 0 },
@@ -72,10 +72,7 @@ export const SuccessPopup = () => {
                                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
-                        <>
-                            <img src={PcLogoIcon.src} alt="Logo" className="mt-8 mb-6 lg:flex hidden" />
-                            <img src={PcLogoIcon.src} alt="Logo" className="mt-8 mb-6 lg:hidden flex w-[260px]" />
-                        </>
+                        <img src={WrapStudioLogo.src} alt="Wrap Studio" className="mt-8 mb-6 w-[260px] sm:w-[300px] h-auto" />
                         <span className="text-2xl font-bold mb-4 text-primary font-gotham">
                             Сообщение отправлено!
                         </span>

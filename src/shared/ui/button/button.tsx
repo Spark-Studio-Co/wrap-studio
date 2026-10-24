@@ -40,8 +40,8 @@ const Button: React.FC<Props> = ({
     ];
 
     const variantClasses = {
-        default: "bg-primary font-medium text-white text-[16px] hover:bg-transparent hover:border hover:border-primary flex items-center justify-center",
-        outline: "border border-primary font-medium text-white text-[16px] hover:bg-primary flex items-center justify-center",
+        default: "bg-primary-dark font-medium text-white text-[16px] hover:bg-transparent hover:border hover:border-primary flex items-center justify-center",
+        outline: "border border-primary font-medium text-white text-[16px] hover:bg-primary-dark flex items-center justify-center",
         link: "text-primary hover:text-white flex items-center justify-center"
     };
 

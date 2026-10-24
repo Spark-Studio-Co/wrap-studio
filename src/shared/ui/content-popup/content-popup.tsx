@@ -76,7 +76,7 @@ export const ContentPopup = () => {
                             >{contentTextPopup}</p>
                             <button
                                 onClick={close}
-                                className="mt-6 px-6 py-2 bg-primary text-white font-gotham rounded-full font-montserrat hover:bg-primary/90 transition-colors relative z-10"
+                                className="mt-6 px-6 py-2 bg-primary-dark text-white font-gotham rounded-full font-montserrat hover:bg-primary-dark/90 transition-colors relative z-10"
                             >
                                 Закрыть
                             </button>

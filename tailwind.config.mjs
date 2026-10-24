@@ -8,9 +8,9 @@ export default {
 				secondary: '#808080',
 				'secondary-dark': '#4A4A4A',
 				'secondary-light': '#D3D3D3',
-				primary: '#50C878',
-				'primary-dark': '#3CB371',
-				'primary-light': '#90EE90'
+				primary: '#E54D52',
+				'primary-dark': '#DA0F21',
+				'primary-light': '#F06B70'
 			},
 			fontFamily: {
 				gotham: [

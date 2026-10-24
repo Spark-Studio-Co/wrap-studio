@@ -23,7 +23,7 @@ export function ServiceCard3d({ title, description, image, index, className, con
 
     return (
         <CardContainer className="xl:inter-var w-full">
-            <CardBody className={`group xl:group/card lg:min-h-[390px] xl:min-h-[440px] 2xl:min-h-[490px] 3xl:min-h-[460px] 4xl:min-h-[480px] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] relative w-full lg:p-[20px] flex items-start flex-col border border-secondary-dark rounded-[12px]  ${className}`}>
+            <CardBody className={`group xl:group/card lg:min-h-[390px] xl:min-h-[440px] 2xl:min-h-[490px] 3xl:min-h-[460px] 4xl:min-h-[480px] dark:hover:shadow-2xl dark:hover:shadow-primary/[0.1] relative w-full lg:p-[20px] flex items-start flex-col border border-secondary-dark rounded-[12px]  ${className}`}>
 
                 <span
                     className="absolute inset-0 flex justify-center items-center text-[300px] lg:text-[280px] font-walk-da-walk font-[400] text-secondary opacity-10 z-0"
@@ -47,7 +47,7 @@ export function ServiceCard3d({ title, description, image, index, className, con
                 </CardItem>
                 <CardItem
                     translateZ="100"
-                    className="w-full mt-4 group-hover:shadow-[0px_4px_128px_0px_#50C87840]"
+                    className="w-full mt-4 group-hover:shadow-[0px_4px_128px_0px_#DA0F2140]"
                 >
                     <div
                         className="relative w-full h-auto bg-cover bg-center rounded-[12px]"
